@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#EDF2F3">
+
+        <Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#15227A"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dashboard"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:layout_marginLeft="50dp"
+
+                />
+
+        </Toolbar>
+
+        <!-- <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="10dp"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="false"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_height="172dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/orange_yellow"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="San Diago"
+                            android:textColor="#ffffff"
+                            android:textSize="24dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Current Location"
+                            android:textColor="#97ffffff"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:text="coeff"
+                            android:textColor="#ffffff"
+                            android:textSize="24dp" />
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TP"
+                        android:textColor="#ffffff"
+                        android:textSize="34dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="90dp"
+                        android:text="DS"
+                        android:textColor="#ffffff"
+                        android:textSize="34dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:text="DC"
+                        android:textColor="#ffffff"
+                        android:textSize="34dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView> -->
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/card"
+            android:orientation="vertical">
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to the home page "
+
+            android:layout_marginLeft="90dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/AddButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="#F8CF40"
+            android:clickable="true"
+            android:onClick="AddMatierial"
+            app:srcCompat="@drawable/float_button"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

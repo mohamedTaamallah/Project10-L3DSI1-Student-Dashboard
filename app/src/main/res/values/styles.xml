@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="montra">
+
+        <item name="android:textSize">
+            46sp
+        </item>
+
+        <item name="android:textColor">
+            #05445E
+        </item>
+
+    </style>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- styles.xml -->
+    <style name="lorem_conse">
+
+        <item name="android:textSize">
+            36sp
+        </item>
+
+        <item name="android:textColor">
+            #B32F80ED
+        </item>
+
+    </style>
+</resources>

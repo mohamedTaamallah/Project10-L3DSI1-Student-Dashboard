@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/home_indica"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:background="#0000FF"
+        >
+
+        <!-- Background -->
+
+        <!-- montra -->
+
+        <View
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            ></View>
+
+        <RelativeLayout
+            android:id="@+id/input_field"
+            android:layout_width="wrap_content"
+            android:layout_height="445dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/input_field">
+
+            <TextView
+                android:id="@+id/montra1"
+                android:layout_width="412dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="150dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Student"
+                android:textAppearance="@style/montra" />
+
+            <TextView
+                android:id="@+id/montra"
+                android:layout_width="286dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="254dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Dashboard"
+                android:textAppearance="@style/montra" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/montra3"
+            android:layout_width="286dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="68dp"
+            android:layout_marginTop="606dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Organized , Practical , Creative"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

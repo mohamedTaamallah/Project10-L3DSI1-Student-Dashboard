@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/bottom_navigation.xml" value="0.14583333333333334" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/button_test.xml" value="0.14583333333333334" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/float_button.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/frame_input.xml" value="0.14583333333333334" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/ic_baseline_notes_24.xml" value="0.2713541666666667" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/input_field.xml" value="0.14583333333333334" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/logo.xml" value="0.2713541666666667" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/logo2.xml" value="0.2713541666666667" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/logo3.xml" value="0.2713541666666667" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/orange_yellow.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/purple_purple.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/start_page.xml" value="0.14583333333333334" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/start_page1.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/start_page2.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/start_page3.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/layout/Start_page.xml" value="0.1296875" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/layout/activity_main.xml" value="0.4716599190283401" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/layout/cardviewlist.xml" value="0.264" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/layout/home_page.xml" value="0.4" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/layout/start_page.xml" value="0.11200000000000002" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/layout/start_screen.xml" value="0.264" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/layout/test.xml" value="0.17300724637681159" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/project/app/src/main/res/layout-v31/activity_main.xml" value="0.1621376811594203" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/project/app/src/main/res/layout/Home_page.xml" value="0.264" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/project/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/project/app/src/main/res/layout/home_page.xml" value="0.4" />
+        <entry key="..\:/Users/MSI/Downloads/Projet_Android-Develop/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/MSI/Downloads/Projet_Android-Develop/app/src/main/res/layout/cardviewlist.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/MSI/Downloads/Projet_Android-Develop/app/src/main/res/layout/home_page.xml" value="0.13385416666666666" />
+        <entry key="..\:/Users/adamk/AndroidStudioProjects/project/app/src/main/res/drawable/bg1.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/adamk/AndroidStudioProjects/project/app/src/main/res/drawable/orange_yellow.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/adamk/AndroidStudioProjects/project/app/src/main/res/layout/activity_main.xml" value="0.36594202898550726" />
+        <entry key="..\:/Users/adamk/AndroidStudioProjects/project/app/src/main/res/layout/cardviewlist.xml" value="0.33" />
+        <entry key="..\:/Users/adamk/AndroidStudioProjects/project/app/src/main/res/layout/home_page.xml" value="0.25" />
+        <entry key="..\:/Users/adamk/AndroidStudioProjects/project/app/src/main/res/layout/testlayout.xml" value="0.36594202898550726" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
