@@ -26,12 +26,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
     FirebaseDatabase firebaseDatabase;
     home_page_activity homePageActivity;
     Matiere matiere;
+    private RecycleViewClickListener clickListener;
+    private  RecyclerViewLongClick longClickListener;
 
-
-    public MyAdapter(Context context, ArrayList<Matiere> data) {
+    public MyAdapter(Context context, ArrayList<Matiere> data, RecycleViewClickListener clickListener, RecyclerViewLongClick longClickListener) {
         this.context = context;
         this.mats = data;
         firebaseDatabase= FirebaseDatabase.getInstance();
+        this.clickListener = clickListener;
+        this.longClickListener = longClickListener;
 
     }
     @NonNull
@@ -69,9 +72,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
         holder.BtnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              long index = (long) mats.get(position).getId()+1;
+                String index = mats.get(position).getId();
                 Toast.makeText(holder.matName.getContext(), "index", Toast.LENGTH_SHORT).show();
-                firebaseDatabase.getReference().child("Etudiant").child(String.valueOf(index)).removeValue();
+                firebaseDatabase.getReference().child("Etudiant").child(index).removeValue();
             }
         });
 
@@ -81,11 +84,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
 
     @Override
     public int getItemCount() {
-        int x = mats.size();
-        return x;
+        return mats.size();
     }
 
-    public class myViewHolder extends RecyclerView.ViewHolder {
+    public class myViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener, View.OnClickListener{
 
         TextView tp, dc, ds, matName, coef ;
         ImageView BtnDelete;
@@ -93,6 +95,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
+
             tp= itemView.findViewById(R.id.tp_txt);
             dc= itemView.findViewById(R.id.dc_txt);
             ds= itemView.findViewById(R.id.ds_txt);
@@ -101,5 +107,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
             BtnDelete = itemView.findViewById(R.id.BtnDelete);
 
         }
+        @Override
+        public void onClick(View view) {
+            clickListener.onClick(itemView, getAdapterPosition());
+        }
+
+
+        @Override
+        public boolean onLongClick(View view) {
+            longClickListener.onItemLongClicked(itemView, getAdapterPosition());
+            return false;
+        }
+    }
+    public interface RecycleViewClickListener {
+        void onClick(View v, int positon);
+    }
+    public interface RecyclerViewLongClick {
+        boolean onItemLongClicked(View v, int position);
     }
 }
