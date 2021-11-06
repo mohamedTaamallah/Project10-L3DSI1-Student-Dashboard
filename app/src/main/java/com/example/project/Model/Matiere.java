@@ -1,18 +1,18 @@
 package com.example.project.Model;
 
 public class Matiere {
-    private long id ;
+    private String id ;
     private String name;
     private float  coef;
     private boolean Tp  ;
     private boolean Exam ;
     private boolean Dc ;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

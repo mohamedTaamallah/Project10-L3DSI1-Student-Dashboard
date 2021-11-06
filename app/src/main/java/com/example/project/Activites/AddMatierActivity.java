@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -21,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity {
+public class AddMatierActivity extends AppCompatActivity {
     long maxid = 0;
     EditText Nom;
     EditText Coef;
@@ -29,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_add_matier);
+        setTitle("Ajouter une Matiere");
 
         DatabaseReference reff  = FirebaseDatabase.getInstance().getReference().child("Etudiant");
         Matiere matiere  = new Matiere();
@@ -78,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 if (checkInputs() == true) {
                     matiere.setName(Nom.getText().toString());
                     matiere.setCoef(Float.parseFloat(Coef.getText().toString()));
-                    matiere.setId(maxid);
+                    //matiere.setId(maxid);
                     reff.child(String.valueOf(maxid+1)).setValue(matiere);
-                    Toast.makeText(MainActivity.this,"votre matiere a etait ajouter ",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddMatierActivity.this,"votre matiere a etait ajouter ",Toast.LENGTH_SHORT).show();
                     reset();
 
                 }
@@ -111,7 +110,7 @@ public boolean checkInputs(){
         }
         if(!BtnDc.isChecked()&&!BtnTp.isChecked()&&!BtnExam.isChecked())
         {
-            Toast.makeText(MainActivity.this, "Selectionnez les types d'epreuves", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AddMatierActivity.this, "Selectionnez les types d'epreuves", Toast.LENGTH_SHORT).show();
             result=false;
 
         }
