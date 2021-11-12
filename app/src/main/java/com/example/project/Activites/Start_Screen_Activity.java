@@ -1,11 +1,11 @@
 package com.example.project.Activites;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.VideoView;
 import android.view.View;
 import android.widget.Toast;
 
@@ -40,6 +40,11 @@ public class Start_Screen_Activity extends AppCompatActivity {
         if(signInAccount != null) {
             Toast.makeText(this, "User is already logged in", Toast.LENGTH_SHORT).show();
         }
+
+        VideoView videoView = (VideoView) findViewById(R.id.videoView);
+        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.intro);
+        videoView.start();
+
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
