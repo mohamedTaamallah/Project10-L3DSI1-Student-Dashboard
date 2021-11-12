@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -12,6 +14,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.project.Adapters.MyContextApp;
 import com.example.project.Model.Matiere;
 import com.example.project.R;
 import com.google.firebase.database.DataSnapshot;
@@ -25,13 +28,15 @@ public class AddMatierActivity extends AppCompatActivity {
     EditText Nom;
     EditText Coef;
     CheckBox BtnTp,BtnExam,BtnDc;
+    MyContextApp appContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_matier);
         setTitle("Ajouter une Matiere");
+        appContext = (MyContextApp)getApplicationContext();
 
-        DatabaseReference reff  = FirebaseDatabase.getInstance().getReference().child("Etudiant");
+        DatabaseReference reff  = FirebaseDatabase.getInstance().getReference("Etudiant").child(appContext.getUid());
         Matiere matiere  = new Matiere();
 
         Button btnAjouter = findViewById(R.id.BtnAjouter);
@@ -94,26 +99,33 @@ public class AddMatierActivity extends AppCompatActivity {
 
 
     }
-public void reset ()
-{
-    Nom.getText().clear();
-    Coef.getText().clear();;
+    public void reset ()
+    {
+        Nom.getText().clear();
+        Coef.getText().clear();;
 
 
-}
-public boolean checkInputs(){
-        boolean result = true;
-        if(TextUtils.isEmpty(Nom.getText()))
-        {
-            Nom.setError("Veuillez entrer le nom du matiere");
-            result=false;
-        }
-        if(!BtnDc.isChecked()&&!BtnTp.isChecked()&&!BtnExam.isChecked())
-        {
-            Toast.makeText(AddMatierActivity.this, "Selectionnez les types d'epreuves", Toast.LENGTH_SHORT).show();
-            result=false;
+    }
+    public boolean checkInputs(){
+            boolean result = true;
+            if(TextUtils.isEmpty(Nom.getText()))
+            {
+                Nom.setError("Veuillez entrer le nom du matiere");
+                result=false;
+            }
+            if(!BtnDc.isChecked()&&!BtnTp.isChecked()&&!BtnExam.isChecked())
+            {
+                Toast.makeText(AddMatierActivity.this, "Selectionnez les types d'epreuves", Toast.LENGTH_SHORT).show();
+                result=false;
 
-        }
-        return result;
-}
+            }
+            return result;
+    }
+    // menu configuration
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
 }

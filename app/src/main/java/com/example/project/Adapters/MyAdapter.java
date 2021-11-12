@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.project.Activites.home_page_activity;
 import com.example.project.Model.Matiere;
 import com.example.project.R;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -23,16 +24,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
 
     ArrayList<Matiere> mats;
     Context context;
-    FirebaseDatabase firebaseDatabase;
+    DatabaseReference firebaseDatabase;
     home_page_activity homePageActivity;
     Matiere matiere;
+    MyContextApp appContext;
+
     private RecycleViewClickListener clickListener;
     private  RecyclerViewLongClick longClickListener;
 
-    public MyAdapter(Context context, ArrayList<Matiere> data, RecycleViewClickListener clickListener, RecyclerViewLongClick longClickListener) {
+
+    public MyAdapter(Context context, ArrayList<Matiere> data, RecycleViewClickListener clickListener, RecyclerViewLongClick longClickListener, DatabaseReference firebaseDatabase) {
         this.context = context;
         this.mats = data;
-        firebaseDatabase= FirebaseDatabase.getInstance();
+
+        this.firebaseDatabase = firebaseDatabase;
         this.clickListener = clickListener;
         this.longClickListener = longClickListener;
 
@@ -73,8 +78,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
             @Override
             public void onClick(View v) {
                 String index = mats.get(position).getId();
-                Toast.makeText(holder.matName.getContext(), "index", Toast.LENGTH_SHORT).show();
-                firebaseDatabase.getReference().child("Etudiant").child(index).removeValue();
+                Toast.makeText(holder.matName.getContext(), "Matiere supprimée", Toast.LENGTH_SHORT).show();
+                firebaseDatabase.child(index).removeValue();
             }
         });
 
