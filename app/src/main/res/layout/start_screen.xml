@@ -65,6 +65,11 @@
 
         </RelativeLayout>
 
+        <com.google.android.gms.common.SignInButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signIn"/>
+
         <TextView
             android:id="@+id/montra3"
             android:layout_width="286dp"
