@@ -124,6 +124,7 @@ public class Start_Screen_Activity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if(signInAccount != null || firebaseAuth.getCurrentUser() != null) {
+            signIn.setVisibility(View.INVISIBLE);
             appContext.setUid(firebaseAuth.getCurrentUser().getUid());
             Toast.makeText(this, "User is already logged in", Toast.LENGTH_SHORT).show();
             handler.postDelayed(runnable,3000);
