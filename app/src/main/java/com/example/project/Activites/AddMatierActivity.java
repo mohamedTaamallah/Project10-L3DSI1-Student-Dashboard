@@ -113,6 +113,11 @@ public class AddMatierActivity extends AppCompatActivity {
                 Nom.setError("Veuillez entrer le nom du matiere");
                 result=false;
             }
+        if(TextUtils.isEmpty(Coef.getText()))
+        {
+            Coef.setError("Veuillez entrer le Coef de matiere");
+            result=false;
+        }
             if(!BtnDc.isChecked()&&!BtnTp.isChecked()&&!BtnExam.isChecked())
             {
                 Toast.makeText(AddMatierActivity.this, "Selectionnez les types d'epreuves", Toast.LENGTH_SHORT).show();
