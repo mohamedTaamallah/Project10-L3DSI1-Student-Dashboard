@@ -2,6 +2,12 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.project">
+    <uses-permission android:name="android.permission.Read_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+
 
     <application
         android:allowBackup="true"
@@ -36,6 +42,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activites.Upload_image_Activity" />
+        <activity android:name=".Activites.Important_dates_Activity" />
+        <activity android:name=".Activites.liste_important_dates" />
     </application>
 
 </manifest>
