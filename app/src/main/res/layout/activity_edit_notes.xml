@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:background="#6AE8E6E6">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="60dp"
+            android:textAlignment="center"
+            android:text="Modifier Matiere"
+            android:textColor="#0C2D48"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/viewDC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="50dp"
+            android:text="Note Controle"
+            android:textColor="@color/black"
+            android:textFontWeight="@integer/material_motion_duration_short_1"
+            android:textSize="20dp"
+
+            />
+
+        <RelativeLayout
+            android:id="@+id/input_controle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/input_field">
+
+            <EditText
+                android:id="@+id/txtNoteDC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:hint="Entrer la Note de Controle"
+                android:inputType="numberDecimal" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/viewDS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="50dp"
+            android:text="Note Examen"
+            android:textColor="@color/black"
+            android:textFontWeight="@integer/material_motion_duration_short_1"
+            android:textSize="20dp"
+
+            />
+
+        <RelativeLayout
+            android:id="@+id/input_Exam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/input_field">
+
+            <EditText
+                android:id="@+id/txtNoteDS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:hint="Entrer la Note de Examen"
+                android:inputType="numberDecimal" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/viewTP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="50dp"
+            android:text="Note TP"
+            android:textColor="@color/black"
+            android:textFontWeight="@integer/material_motion_duration_short_1"
+            android:textSize="20dp"
+
+            />
+
+        <RelativeLayout
+            android:id="@+id/input_TP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/input_field">
+
+            <EditText
+                android:id="@+id/txtNoteTP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:inputType="numberDecimal"
+                android:hint="Entrer la Note de TP" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="24sp"
+            android:layout_marginBottom="24sp"
+            android:background="@drawable/ic_android_black_24dp"
+            android:text="Modifier"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -63,13 +63,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
             holder.matName.setText(mats.get(position).getName());
             holder.coef.setText(String.valueOf(mats.get(position).getCoef()));
             System.out.println(mats.get(position).getTp());
-            if(mats.get(position).getTp() == false) {
-                holder.tp.setVisibility(View.GONE);
+            if(mats.get(position).getTp().isExist() == false) {
+                holder.tp.setVisibility(View.INVISIBLE);
             }
-            if(mats.get(position).getDc() == false) {
+            if(mats.get(position).getDc().isExist() == false) {
                 holder.dc.setVisibility(View.INVISIBLE);
             }
-            if(mats.get(position).getExam() == false) {
+            if(mats.get(position).getExam().isExist() == false) {
                 holder.ds.setVisibility(View.INVISIBLE);
             }
         }
