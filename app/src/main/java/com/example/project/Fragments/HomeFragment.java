@@ -3,6 +3,7 @@ package com.example.project.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,9 +13,12 @@ import android.widget.TextView;
 
 import com.example.project.Activites.AddMatierActivity;
 import com.example.project.Activites.EditNotesActivity;
+import com.example.project.Activites.home_page_activity;
 import com.example.project.Adapters.MyContextApp;
 import com.example.project.Model.Matiere;
 import com.example.project.R;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +40,7 @@ public class HomeFragment extends Fragment {
     MyContextApp app;
     Matiere matiere;
 
+    TextView noteDC, noteTP, noteDS;
     public HomeFragment() {
         // Required empty public constructor
         matiere = new Matiere();
@@ -70,6 +75,13 @@ public class HomeFragment extends Fragment {
         app = (MyContextApp) getActivity().getApplicationContext();
         matiere = app.getMatiere();
 
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                startActivity(new Intent(getActivity().getApplicationContext(), home_page_activity.class));
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override
@@ -82,8 +94,18 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        changeStudentName(matiere.getName());
+        changeMatierName(matiere.getName());
         TextView EditNote = (TextView) getView().findViewById(R.id.EditNote);
+        noteDC = (TextView) getView().findViewById(R.id.noteDC);
+        noteTP = (TextView) getView().findViewById(R.id.noteTP);
+        noteDS = (TextView) getView().findViewById(R.id.noteDS);
+
+        noteDC.setText(String.valueOf(app.getMatiere().getDc().getNote()));
+        noteTP.setText(String.valueOf(app.getMatiere().getTp().getNote()));
+        noteDS.setText(String.valueOf(app.getMatiere().getExam().getNote()));
+
+        checkVisibility();
+
         EditNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,8 +113,25 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    public void changeStudentName(String name) {
+
+
+    public void changeMatierName(String name) {
         studentName = (TextView)getView().findViewById(R.id.StudentName);
         studentName.setText(name);
+    }
+
+    void checkVisibility() {
+        if(!matiere.getExam().isExist()) {
+            ((TextView)getView().findViewById(R.id.txtViewDS)).setVisibility(View.GONE);
+            noteDS.setVisibility(View.GONE);
+        }
+        if(!matiere.getDc().isExist()) {
+            ((TextView)getView().findViewById(R.id.txtViewDC)).setVisibility(View.GONE);
+            noteDC.setVisibility(View.GONE);
+        }
+        if(!matiere.getTp().isExist()) {
+            ((TextView)getView().findViewById(R.id.txtViewTP)).setVisibility(View.GONE);
+            noteTP.setVisibility(View.GONE);
+        }
     }
 }

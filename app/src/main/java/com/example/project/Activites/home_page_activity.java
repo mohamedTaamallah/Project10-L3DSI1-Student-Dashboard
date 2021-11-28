@@ -81,9 +81,8 @@ public class home_page_activity extends AppCompatActivity  {
                 //Toast.makeText(home_page_activity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
+
     public void AddMatierial(View v)
     {
         Intent intent = new Intent(this, AddMatierActivity.class);

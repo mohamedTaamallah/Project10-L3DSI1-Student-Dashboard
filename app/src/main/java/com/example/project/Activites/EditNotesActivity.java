@@ -3,6 +3,7 @@ package com.example.project.Activites;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -49,10 +50,12 @@ public class EditNotesActivity extends AppCompatActivity {
 
                     Matiere mat = new Matiere(matiere.getName(), matiere.getCoef(), tp, ds, dc);
 
-                    System.out.println(matiere.getId() + mat);
+                    app.setMatiere(mat);
+
                     reff.child(String.valueOf(matiere.getId())).setValue(mat);
 
                     Toast.makeText(EditNotesActivity.this, "Modification avec success", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(EditNotesActivity.this, MatiereDetailsActivity.class));
                 }else {
                     Toast.makeText(EditNotesActivity.this, "Verifier les notes", Toast.LENGTH_SHORT).show();
                 }
@@ -64,19 +67,10 @@ public class EditNotesActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(!matiere.getTp().isExist()){
-            ((RelativeLayout)findViewById(R.id.input_TP)).setVisibility(View.GONE);
-            ((TextView)findViewById(R.id.viewTP)).setVisibility(View.GONE);
-        }
-        if(!matiere.getDc().isExist()){
-            ((RelativeLayout)findViewById(R.id.input_controle)).setVisibility(View.GONE);
-            ((TextView)findViewById(R.id.viewDC)).setVisibility(View.GONE);
-        }
-        if(!matiere.getExam().isExist()){
-            ((RelativeLayout)findViewById(R.id.input_Exam)).setVisibility(View.GONE);
-            ((TextView)findViewById(R.id.viewTP)).setVisibility(View.GONE);
-        }
+        checkVisibility();
     }
+
+
 
     public TP setUpTP(@NonNull Matiere m) {
         TP tp = new TP();
@@ -112,25 +106,54 @@ public class EditNotesActivity extends AppCompatActivity {
         boolean Valid = true;
 
 
-
-        if(!txtNoteTP.getText().toString().isEmpty()) {
-            float txtTP = Float.parseFloat(txtNoteTP.getText().toString());
-            if(txtTP>20f || txtTP<0f) {
+        if(matiere.getTp().isExist()) {
+            if (!txtNoteTP.getText().toString().isEmpty()) {
+                float txtTP = Float.parseFloat(txtNoteTP.getText().toString());
+                if (txtTP > 20f || txtTP < 0f) {
+                    Valid = false;
+                }
+            } else {
+                System.out.println("TP verif failed");
                 Valid = false;
             }
-        }else Valid = false;
-        if(!txtNoteDC.getText().toString().isEmpty()) {
-            float txtDC = Float.parseFloat(txtNoteDC.getText().toString());
-            if(txtDC>20f || txtDC<0f) {
+        }
+        if(matiere.getDc().isExist()) {
+            if (!txtNoteDC.getText().toString().isEmpty()) {
+                float txtDC = Float.parseFloat(txtNoteDC.getText().toString());
+                if (txtDC > 20f || txtDC < 0f) {
+                    Valid = false;
+                }
+            } else {
+                System.out.println("DC verif failed");
                 Valid = false;
             }
-        }else Valid = false;
-         if(!txtNoteDS.getText().toString().isEmpty()) {
-             float txtDS = Float.parseFloat(txtNoteDS.getText().toString());
-             if (txtDS > 20f || txtDS < 0f) {
-                 Valid = false;
-             }
-         }else Valid = false;
+        }
+        if(matiere.getExam().isExist()) {
+            if (!txtNoteDS.getText().toString().isEmpty()) {
+                float txtDS = Float.parseFloat(txtNoteDS.getText().toString());
+                if (txtDS > 20f || txtDS < 0f) {
+                    Valid = false;
+                }
+            } else {
+                System.out.println("DS verif failed");
+                Valid = false;
+            }
+        }
         return Valid;
+    }
+
+    private void checkVisibility() {
+        if(!matiere.getTp().isExist()){
+            ((RelativeLayout)findViewById(R.id.input_TP)).setVisibility(View.GONE);
+            ((TextView)findViewById(R.id.viewTP)).setVisibility(View.GONE);
+        }
+        if(!matiere.getDc().isExist()){
+            ((RelativeLayout)findViewById(R.id.input_controle)).setVisibility(View.GONE);
+            ((TextView)findViewById(R.id.viewDC)).setVisibility(View.GONE);
+        }
+        if(!matiere.getExam().isExist()){
+            ((RelativeLayout)findViewById(R.id.input_Exam)).setVisibility(View.GONE);
+            ((TextView)findViewById(R.id.viewTP)).setVisibility(View.GONE);
+        }
     }
 }
