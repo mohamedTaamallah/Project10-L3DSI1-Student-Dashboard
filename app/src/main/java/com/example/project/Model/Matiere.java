@@ -4,9 +4,9 @@ public class Matiere {
     private String id ;
     private String name;
     private float  coef;
-    private boolean Tp  ;
-    private boolean Exam ;
-    private boolean Dc ;
+    private TP Tp  ;
+    private Examen Exam ;
+    private Control Dc ;
 
     public String getId() {
         return id;
@@ -18,7 +18,7 @@ public class Matiere {
 
     public Matiere (){}
 
-    public Matiere(String name, float coef, Boolean tp, Boolean exam, Boolean dc) {
+    public Matiere(String name, float coef, TP tp, Examen exam, Control dc) {
         this.name = name;
         this.coef = coef;
         Tp = tp;
@@ -42,27 +42,39 @@ public class Matiere {
         this.coef = coef;
     }
 
-    public boolean getTp() {
+    public TP getTp() {
         return Tp;
     }
 
-    public void setTp(boolean tp) {
+    public void setTp(TP tp) {
         Tp = tp;
     }
 
-    public boolean getExam() {
+    public Examen getExam() {
         return Exam;
     }
 
-    public void setExam(boolean exam) {
+    public void setExam(Examen exam) {
         Exam = exam;
     }
 
-    public boolean getDc() {
+    public Control getDc() {
         return Dc;
     }
 
-    public void setDc(boolean dc) {
+    public void setDc(Control dc) {
         Dc = dc;
+    }
+
+    @Override
+    public String toString() {
+        return "Matiere{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", coef=" + coef +
+                ", Tp=" + Tp +
+                ", Exam=" + Exam +
+                ", Dc=" + Dc +
+                '}';
     }
 }

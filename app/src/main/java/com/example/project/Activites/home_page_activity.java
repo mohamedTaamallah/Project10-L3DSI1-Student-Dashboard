@@ -81,9 +81,8 @@ public class home_page_activity extends AppCompatActivity  {
                 //Toast.makeText(home_page_activity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
+
     public void AddMatierial(View v)
     {
         Intent intent = new Intent(this, AddMatierActivity.class);
@@ -143,6 +142,10 @@ public class home_page_activity extends AppCompatActivity  {
         int id = item.getItemId();
         if(id == R.id.logout){
             logout(appContext);
+        }else if(id == R.id.btnUpload){
+            startActivity(new Intent(this, Upload_image_Activity.class));
+        }else if(id == R.id.BtnDates){
+            startActivity(new Intent(this, liste_important_dates.class));
         }
         return super.onOptionsItemSelected(item);
     }

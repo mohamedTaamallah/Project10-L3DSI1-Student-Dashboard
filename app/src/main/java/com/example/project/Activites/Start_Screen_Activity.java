@@ -100,6 +100,7 @@ public class Start_Screen_Activity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(getApplicationContext(), "Failed to connect", Toast.LENGTH_SHORT).show();
+                        System.out.println("failed");
                     }
                 });
             } catch (ApiException e) {
