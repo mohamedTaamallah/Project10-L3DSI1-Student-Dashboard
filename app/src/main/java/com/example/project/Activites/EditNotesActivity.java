@@ -40,6 +40,7 @@ public class EditNotesActivity extends AppCompatActivity {
         txtNoteTP = (TextView)findViewById(R.id.txtNoteTP);
         txtNoteDC = (TextView)findViewById(R.id.txtNoteDC);
         txtNoteDS = (TextView)findViewById(R.id.txtNoteDS);
+        initialInsertNotes();
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +63,18 @@ public class EditNotesActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void initialInsertNotes() {
+        if(matiere.getTp().isExist()){
+            txtNoteTP.setText(String.valueOf(matiere.getTp().getNote()));
+        }
+        if(matiere.getDc().isExist()){
+            txtNoteDC.setText(String.valueOf(matiere.getDc().getNote()));
+        }
+        if(matiere.getExam().isExist()){
+            txtNoteDS.setText(String.valueOf(matiere.getExam().getNote()));
+        }
     }
 
     @Override

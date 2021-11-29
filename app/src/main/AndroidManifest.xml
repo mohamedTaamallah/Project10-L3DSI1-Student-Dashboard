@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
+            android:name=".Activites.EditMatierActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activites.EditNotesActivity"
             android:exported="true" />
         <activity
@@ -24,10 +27,10 @@
         <activity
             android:name=".Activites.AddMatierActivity"
             android:exported="true"
-            android:parentActivityName=".Activites.home_page_activity"></activity>
+            android:parentActivityName=".Activites.home_page_activity" />
         <activity
             android:name=".Activites.home_page_activity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activites.Start_Screen_Activity"
             android:exported="true"
