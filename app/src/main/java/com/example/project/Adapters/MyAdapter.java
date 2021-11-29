@@ -121,7 +121,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
         @Override
         public boolean onLongClick(View view) {
             longClickListener.onItemLongClicked(itemView, getAdapterPosition());
-            return false;
+            return true;
         }
     }
     public interface RecycleViewClickListener {
