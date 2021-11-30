@@ -39,7 +39,7 @@ public class EditMatierActivity extends AppCompatActivity {
         app = (MyContextApp)getApplicationContext();
 
         DatabaseReference reff  = FirebaseDatabase.getInstance().getReference("Etudiant")
-                .child(app.getUid()).child(app.getMatiere().getId());
+                .child(app.getUid()).child("Matiere").child(app.getMatiere().getId());
         matiere  = new Matiere();
 
         Nom = findViewById(R.id.txtName);
@@ -75,12 +75,12 @@ public class EditMatierActivity extends AppCompatActivity {
                 dc.setExist(BtnDc.isChecked());
                 matiere.setDc(dc);
 
-                Examen ds = matiere.getExam();
+                Examen ds = app.getMatiere().getExam();
                 ds.setExist(BtnExam.isChecked());
                 matiere.setExam(ds);
 
 
-                TP tp = matiere.getTp();
+                TP tp = app.getMatiere().getTp();
                 tp.setExist(BtnTp.isChecked());
                 matiere.setTp(tp);
 
@@ -92,7 +92,7 @@ public class EditMatierActivity extends AppCompatActivity {
 
 
                     reff.setValue(matiere);
-                    Toast.makeText(getApplicationContext(),"votre matiere a etait ajouter ",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"votre matiere a etait Modifier ",Toast.LENGTH_SHORT).show();
                     //reset();
 
                 }

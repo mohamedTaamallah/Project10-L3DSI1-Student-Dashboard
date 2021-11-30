@@ -2,6 +2,7 @@ package com.example.project.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,7 +92,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
         return mats.size();
     }
 
-    public class myViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener, View.OnClickListener{
+    public class myViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener, View.OnClickListener, View.OnCreateContextMenuListener {
 
         TextView tp, dc, ds, matName, coef ;
         ImageView BtnDelete;
@@ -101,7 +102,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
             super(itemView);
 
             itemView.setOnClickListener(this);
-            itemView.setOnLongClickListener(this);
+            //itemView.setOnLongClickListener(this);
+            itemView.setOnCreateContextMenuListener(this);
 
             tp= itemView.findViewById(R.id.tp_txt);
             dc= itemView.findViewById(R.id.dc_txt);
@@ -122,6 +124,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
             longClickListener.onItemLongClicked(itemView, getAdapterPosition());
             return true;
         }
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo contextMenuInfo) {
+
+            menu.add(getAdapterPosition(), getAdapterPosition(), 1, "Update");//groupId, itemId, order, title
+            menu.add(getAdapterPosition(), getAdapterPosition(), 2, "Delete");
+        }
     }
     public interface RecycleViewClickListener {
         void onClick(View v, int positon);
@@ -129,4 +137,5 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
     public interface RecyclerViewLongClick {
         boolean onItemLongClicked(View v, int position);
     }
+
 }
