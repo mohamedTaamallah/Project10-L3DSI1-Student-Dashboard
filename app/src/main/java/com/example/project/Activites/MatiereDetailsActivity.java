@@ -1,11 +1,11 @@
 package com.example.project.Activites;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import android.os.Bundle;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.project.Fragments.AboutFragment;
@@ -18,9 +18,12 @@ public class MatiereDetailsActivity extends AppCompatActivity {
 
     MyContextApp app;
     MeowBottomNavigation bottomNavigation;
+    String matiere_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent=getIntent();
+        matiere_id = intent.getStringExtra("matiere_id");
 
         setContentView(R.layout.activity_matiere_details);
         app = (MyContextApp) getApplicationContext();
@@ -51,7 +54,7 @@ public class MatiereDetailsActivity extends AppCompatActivity {
                         break;
                     case 3:
                         //initilize About fragment
-                        fragment = new AboutFragment();
+                        fragment = new AboutFragment(matiere_id);
                         break;
                 }
                 loadFragment(fragment, item);
@@ -66,7 +69,10 @@ public class MatiereDetailsActivity extends AppCompatActivity {
         bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
             @Override
             public void onClickItem(MeowBottomNavigation.Model item) {
-                Toast.makeText(getApplicationContext(), "You Clicked"+item.getId(), Toast.LENGTH_SHORT).show();
+
+
+
+                Toast.makeText(getApplicationContext(), matiere_id, Toast.LENGTH_SHORT).show();
             }
         });
         bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
