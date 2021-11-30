@@ -1,12 +1,15 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+
+import com.example.project.Activites.Upload_image_Activity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,8 +27,9 @@ public class AboutFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AboutFragment() {
+    public AboutFragment(String matiere_id) {
         // Required empty public constructor
+        mParam1=matiere_id;
     }
 
     /**
@@ -33,15 +37,13 @@ public class AboutFragment extends Fragment {
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment AboutFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AboutFragment newInstance(String param1, String param2) {
-        AboutFragment fragment = new AboutFragment();
+    public static AboutFragment newInstance(String param1) {
+        AboutFragment fragment = new AboutFragment(param1);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,6 +51,7 @@ public class AboutFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -58,7 +61,24 @@ public class AboutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about, container, false);
+        View v = inflater.inflate(R.layout.fragment_about, container, false);
+        FloatingActionButton addPhoto = v.findViewById(R.id.AddPhoto);
+        //Navigate to the add photo
+        addPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(getActivity(), Upload_image_Activity.class);
+                i.putExtra("matiere",mParam1);
+                startActivity(i);
+
+
+            }
+        });
+        return v;
+
     }
+
+
 }
