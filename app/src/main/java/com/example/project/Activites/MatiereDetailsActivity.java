@@ -8,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
-import com.example.project.AboutFragment;
+import com.example.project.Fragments.AboutFragment;
 import com.example.project.Adapters.MyContextApp;
-import com.example.project.HomeFragment;
-import com.example.project.NotificationFragment;
+import com.example.project.Fragments.HomeFragment;
+import com.example.project.Fragments.NotificationFragment;
 import com.example.project.R;
 
 public class MatiereDetailsActivity extends AppCompatActivity {
@@ -29,14 +29,7 @@ public class MatiereDetailsActivity extends AppCompatActivity {
         app = (MyContextApp) getApplicationContext();
 
         setTitle("");
-/*        ((TextView)findViewById(R.id.matName)).setText(app.getMatiere().getName());
 
-        System.out.println("--------------------------------");
-        System.out.println("Nom Matiere: "+app.getMatiere().getName());
-        System.out.println("Mat ID: "+ app.getMatiere().getId());
-        System.out.println("--------------------------------");
-
-*/
         bottomNavigation = findViewById(R.id.bottom_navigation);
         // add menu item
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_notification));
@@ -57,13 +50,14 @@ public class MatiereDetailsActivity extends AppCompatActivity {
                     case 2:
                         //initilize Home fragment
                         fragment = new HomeFragment();
+                        //((HomeFragment) fragment).changeText("Hello");
                         break;
                     case 3:
                         //initilize About fragment
                         fragment = new AboutFragment(matiere_id);
                         break;
                 }
-                loadFragment(fragment);
+                loadFragment(fragment, item);
             }
         });
 
@@ -89,10 +83,12 @@ public class MatiereDetailsActivity extends AppCompatActivity {
         });
     }
 
-    private void loadFragment(Fragment fragment) {
+    private void loadFragment(Fragment fragment,MeowBottomNavigation.Model item) {
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame_layout, fragment)
                 .commit();
+
     }
 }

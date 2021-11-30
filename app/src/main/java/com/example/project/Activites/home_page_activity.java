@@ -72,6 +72,7 @@ public class home_page_activity extends AppCompatActivity  {
                     mats.add(mat);
                 }
                 setOnclickListener();
+                setOnLongClickListener();
                 myAdapter = new MyAdapter(getApplicationContext(), mats, clickListener, longClickListener, mDataRef);
                 recyclerView.setAdapter(myAdapter);
             }
@@ -81,9 +82,8 @@ public class home_page_activity extends AppCompatActivity  {
                 //Toast.makeText(home_page_activity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
+
     public void AddMatierial(View v)
     {
         Intent intent = new Intent(this, AddMatierActivity.class);
@@ -92,10 +92,10 @@ public class home_page_activity extends AppCompatActivity  {
     private void setOnclickListener() {
         clickListener = new MyAdapter.RecycleViewClickListener() {
             @Override
-            public void onClick(View v, int positon) {
+            public void onClick(View v, int position) {
                 Intent intent = new Intent(getApplicationContext(), MatiereDetailsActivity.class);
                 // ASSIGNING DATA TO CONTEXT
-                appContext.setMatiere(mats.get(positon));
+                appContext.setMatiere(mats.get(position));
                 startActivity(intent);
             }
         };
@@ -104,7 +104,9 @@ public class home_page_activity extends AppCompatActivity  {
         longClickListener = new MyAdapter.RecyclerViewLongClick() {
             @Override
             public boolean onItemLongClicked(View v, int position) {
-                showDeleteDataDialog();
+                appContext.setMatiere(mats.get(position));
+                startActivity(new Intent(home_page_activity.this, EditMatierActivity.class));
+                //Toast.makeText(home_page_activity.this, "helllooooooo clikc", Toast.LENGTH_SHORT).show();
                 return true;
             }
         };
@@ -143,6 +145,10 @@ public class home_page_activity extends AppCompatActivity  {
         int id = item.getItemId();
         if(id == R.id.logout){
             logout(appContext);
+        }else if(id == R.id.btnUpload){
+            startActivity(new Intent(this, Upload_image_Activity.class));
+        }else if(id == R.id.BtnDates){
+            startActivity(new Intent(this, liste_important_dates.class));
         }
         return super.onOptionsItemSelected(item);
     }

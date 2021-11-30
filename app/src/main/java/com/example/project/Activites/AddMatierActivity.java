@@ -15,7 +15,10 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.project.Adapters.MyContextApp;
+import com.example.project.Model.Control;
+import com.example.project.Model.Examen;
 import com.example.project.Model.Matiere;
+import com.example.project.Model.TP;
 import com.example.project.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -67,22 +70,26 @@ public class AddMatierActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(BtnDc.isChecked())
-                {
-                    matiere.setDc((true));
-                }
-                if(BtnExam.isChecked())
-                {
-                    matiere.setExam(true);
-                }
-                if(BtnTp.isChecked())
-                {
-                    matiere.setTp(true);
-                }
+                    Control dc = new Control();
+                    dc.setExist(BtnDc.isChecked());
+                    matiere.setDc(dc);
+
+                    Examen ds = new Examen();
+                    ds.setExist(BtnExam.isChecked());
+                    matiere.setExam(ds);
+
+
+                    TP tp = new TP();
+                    tp.setExist(BtnTp.isChecked());
+                    matiere.setTp(tp);
+
+
                 if (checkInputs() == true) {
+
                     matiere.setName(Nom.getText().toString());
                     matiere.setCoef(Float.parseFloat(Coef.getText().toString()));
-                    //matiere.setId(maxid);
+
+
                     reff.child(String.valueOf(maxid+1)).setValue(matiere);
                     Toast.makeText(AddMatierActivity.this,"votre matiere a etait ajouter ",Toast.LENGTH_SHORT).show();
                     reset();
@@ -113,6 +120,11 @@ public class AddMatierActivity extends AppCompatActivity {
                 Nom.setError("Veuillez entrer le nom du matiere");
                 result=false;
             }
+        if(TextUtils.isEmpty(Coef.getText()))
+        {
+            Coef.setError("Veuillez entrer le Coef de matiere");
+            result=false;
+        }
             if(!BtnDc.isChecked()&&!BtnTp.isChecked()&&!BtnExam.isChecked())
             {
                 Toast.makeText(AddMatierActivity.this, "Selectionnez les types d'epreuves", Toast.LENGTH_SHORT).show();
