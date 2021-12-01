@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -52,11 +51,6 @@ public class home_page_activity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
         setTitle("Dashboard");
-
-        //call background from drawable
-        LinearLayout ll = (LinearLayout) findViewById(R.id.linearlayout1);
-        ll.setBackgroundResource(R.drawable.pink);
-
         appContext = (MyContextApp)getApplicationContext();
         mDataRef = FirebaseDatabase.getInstance().getReference().child("Etudiant").child(appContext.getUid()).child("Matiere");
         //FloatingActionButton BtnAdd = findViewById(R.id.AddButton);
@@ -149,26 +143,7 @@ public class home_page_activity extends AppCompatActivity  {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //int id = item.getItemId();
-        LinearLayout ll = (LinearLayout) findViewById(R.id.linearlayout1);
-        switch (item.getItemId()){
-            case R.id.logout:
-                logout(appContext);
-                return true;
-            case R.id.asiimov:
-                ll.setBackgroundResource(R.drawable.asiimov);
-                return true;
-            case R.id.carpet:
-                ll.setBackgroundResource(R.drawable.carpet);
-                return true;
-            case R.id.pink:
-                ll.setBackgroundResource(R.drawable.pink);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-/*
+        int id = item.getItemId();
         if(id == R.id.logout){
             logout(appContext);
         }else if(id == R.id.btnUpload){
@@ -176,12 +151,7 @@ public class home_page_activity extends AppCompatActivity  {
         }else if(id == R.id.BtnDates){
             startActivity(new Intent(this, liste_important_dates.class));
         }
-        if(id == R.id.background){
-            LinearLayout ll = (LinearLayout) findViewById(R.id.linearlayout1);
-            ll.setBackgroundResource(R.drawable.str);
-        }
-*/
-
+        return super.onOptionsItemSelected(item);
     }
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
