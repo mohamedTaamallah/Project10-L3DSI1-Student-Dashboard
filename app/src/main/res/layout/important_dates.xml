@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    >
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/calendarView"
+        android:layout_alignEnd="@id/calendarView"
+        android:text="Entrer Description"
+        android:textColor="@color/black"
+
+        android:textSize="20dp" />
+
+    <RelativeLayout
+        android:id="@+id/input_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/calendarView"
+        android:layout_alignEnd="@id/calendarView"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/input_field">
+
+        <EditText
+            android:id="@+id/date_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:hint="Enter  Description" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/calendarView"
+        android:layout_marginTop="120dp"
+        android:text="Entrer horaire"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:layout_alignEnd="@id/calendarView"
+        />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="329dp"
+        android:layout_height="120dp"
+        android:layout_alignStart="@id/calendarView"
+        android:layout_alignEnd="@id/calendarView"
+        android:layout_marginTop="160dp"
+        android:timePickerMode="spinner" />
+
+    <Button
+        android:id="@+id/button_Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/calendarView"
+        android:layout_alignEnd="@id/calendarView"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ic_android_black_24dp"
+        android:text="Add"
+        android:textColor="@color/white" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginRight="30dp" />
+
+</RelativeLayout>

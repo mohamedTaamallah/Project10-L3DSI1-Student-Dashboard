@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.project">
+    <uses-permission android:name="android.permission.Read_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.Read_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"
+        />
+
 
     <application
         android:allowBackup="true"
@@ -10,32 +26,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project"
-        android:name=".Adapters.MyContextApp">
+        android:name=".Adapters.MyContextApp"
+        android:requestLegacyExternalStorage="true">
+        <activity
+            android:name=".Activites.EditMatierActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activites.EditNotesActivity"
+            android:exported="true" />
         <activity
             android:name=".Activites.MatiereDetailsActivity"
-            android:theme="@style/Theme.Project.NoActionBar"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.Project.NoActionBar" />
         <activity
             android:name=".Activites.AddMatierActivity"
             android:exported="true"
-            android:parentActivityName=".Activites.home_page_activity">
-
-        </activity>
+            android:parentActivityName=".Activites.home_page_activity" />
         <activity
             android:name=".Activites.home_page_activity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Activites.Start_Screen_Activity"
-            android:theme="@style/Theme.Project.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Project.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activites.Upload_image_Activity" />
+        <activity android:name=".Activites.Important_dates_Activity" />
+        <activity android:name=".Activites.liste_important_dates" />
     </application>
 
 </manifest>

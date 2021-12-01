@@ -3,6 +3,7 @@ package com.example.project.Activites;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -57,7 +58,7 @@ public class home_page_activity extends AppCompatActivity  {
         ll.setBackgroundResource(R.drawable.pink);
 
         appContext = (MyContextApp)getApplicationContext();
-        mDataRef = FirebaseDatabase.getInstance().getReference().child("Etudiant").child(appContext.getUid());
+        mDataRef = FirebaseDatabase.getInstance().getReference().child("Etudiant").child(appContext.getUid()).child("Matiere");
         //FloatingActionButton BtnAdd = findViewById(R.id.AddButton);
 
 
@@ -78,6 +79,7 @@ public class home_page_activity extends AppCompatActivity  {
                     mats.add(mat);
                 }
                 setOnclickListener();
+                setOnLongClickListener();
                 myAdapter = new MyAdapter(getApplicationContext(), mats, clickListener, longClickListener, mDataRef);
                 recyclerView.setAdapter(myAdapter);
             }
@@ -87,9 +89,8 @@ public class home_page_activity extends AppCompatActivity  {
                 //Toast.makeText(home_page_activity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
+
     public void AddMatierial(View v)
     {
         Intent intent = new Intent(this, AddMatierActivity.class);
@@ -98,10 +99,10 @@ public class home_page_activity extends AppCompatActivity  {
     private void setOnclickListener() {
         clickListener = new MyAdapter.RecycleViewClickListener() {
             @Override
-            public void onClick(View v, int positon) {
+            public void onClick(View v, int position) {
                 Intent intent = new Intent(getApplicationContext(), MatiereDetailsActivity.class);
                 // ASSIGNING DATA TO CONTEXT
-                appContext.setMatiere(mats.get(positon));
+                appContext.setMatiere(mats.get(position));
                 startActivity(intent);
             }
         };
@@ -110,7 +111,9 @@ public class home_page_activity extends AppCompatActivity  {
         longClickListener = new MyAdapter.RecyclerViewLongClick() {
             @Override
             public boolean onItemLongClicked(View v, int position) {
-                showDeleteDataDialog();
+                appContext.setMatiere(mats.get(position));
+                startActivity(new Intent(home_page_activity.this, EditMatierActivity.class));
+                //Toast.makeText(home_page_activity.this, "helllooooooo clikc", Toast.LENGTH_SHORT).show();
                 return true;
             }
         };
@@ -168,6 +171,10 @@ public class home_page_activity extends AppCompatActivity  {
 /*
         if(id == R.id.logout){
             logout(appContext);
+        }else if(id == R.id.btnUpload){
+            startActivity(new Intent(this, Upload_image_Activity.class));
+        }else if(id == R.id.BtnDates){
+            startActivity(new Intent(this, liste_important_dates.class));
         }
         if(id == R.id.background){
             LinearLayout ll = (LinearLayout) findViewById(R.id.linearlayout1);
@@ -175,6 +182,18 @@ public class home_page_activity extends AppCompatActivity  {
         }
 */
 
+    }
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        if(item.getTitle().equals("Update")) {
+            appContext.setMatiere(mats.get(item.getItemId()));
+            startActivity(new Intent(getApplicationContext(), EditMatierActivity.class));
+        }else if(item.getTitle().equals("Delete")) {
+            String index = mats.get(item.getItemId()).getId();
+            Toast.makeText(getApplicationContext(), "Matiere supprimée", Toast.LENGTH_SHORT).show();
+            mDataRef.child(index).removeValue();
+        }
+        return super.onContextItemSelected(item);
     }
     //Logout
     public void logout(Context context) {

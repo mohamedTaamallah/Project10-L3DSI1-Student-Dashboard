@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="30dp"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+
+        app:cardCornerRadius="20dp"
+
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="false"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/card_date_color"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="matiere"
+                android:textColor="#ffffff"
+                android:textSize="24dp"
+
+                />
+
+            <ImageView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="330dp"
+                android:background="@android:drawable/ic_delete"
+                android:clickable="true"
+                android:text="delete"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/horaire"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="290dp"
+                android:layout_marginTop="50dp"
+                android:text="coeff"
+                android:textColor="#ffffff"
+                android:textSize="24dp" />
+
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="50dp"
+                android:text="horaire"
+                android:textColor="#ffffff"
+                android:textSize="25dp" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
