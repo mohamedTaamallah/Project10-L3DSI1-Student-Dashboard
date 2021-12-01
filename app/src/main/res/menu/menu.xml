@@ -5,5 +5,17 @@
     <item android:title="Logout"
         android:id="@+id/logout"
         app:showAsAction="never"/>
+    <item android:title="background"
+        android:id="@+id/background"
+        app:showAsAction="never">
+        <menu>
+            <item android:id="@+id/asiimov"
+                android:title="Asiimov"/>
+            <item android:id="@+id/carpet"
+                android:title="Carpet"/>
+            <item android:id="@+id/pink"
+                android:title="Pink"/>
+        </menu>
+    </item>
 
 </menu>
