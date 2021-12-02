@@ -58,6 +58,7 @@
         <activity android:name=".Activites.Upload_image_Activity" />
         <activity android:name=".Activites.Important_dates_Activity" />
         <activity android:name=".Activites.liste_important_dates" />
+        <activity android:name=".Activites.Upload_Notepad_Matiere" />
     </application>
 
 </manifest>
