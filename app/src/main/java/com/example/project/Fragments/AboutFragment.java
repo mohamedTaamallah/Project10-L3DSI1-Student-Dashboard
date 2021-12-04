@@ -1,6 +1,8 @@
 package com.example.project.Fragments;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,13 +10,24 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
+import com.example.project.Activites.home_page_activity;
+import com.example.project.Adapters.ImageAdapter;
+import com.example.project.Model.Image;
 import com.example.project.R;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.project.Activites.Upload_image_Activity;
+import com.example.project.SQL_lite.DataBaseHandler;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,10 +79,14 @@ public class AboutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        DataBaseHandler db = new DataBaseHandler(getActivity());
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_about, container, false);
         FloatingActionButton addPhoto = v.findViewById(R.id.AddPhoto);
+        GridView gridView = v.findViewById(R.id.Grid);
+         afficher(db,gridView);
+
         //Navigate to the add photo
         addPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,4 +101,18 @@ public class AboutFragment extends Fragment {
         return v;
 
     }
+public void afficher (DataBaseHandler db,GridView gridView ){
+    ArrayList <Image> list_image  = db.getAllImage(mParam1);
+    ArrayList <String> list_descritption  = new ArrayList <>();
+    ArrayList <byte[]> list_images  = new ArrayList <>();
+
+    for (int i = 0; i <list_image.size() ; i++) {
+        list_descritption.add(list_image.get(i).getTitre());
+    }
+    Toast.makeText(getActivity(), list_images.size()+ "Test  ", Toast.LENGTH_SHORT).show();
+    ImageAdapter imageAdapter = new ImageAdapter(getActivity(),list_descritption,list_image);
+    gridView.setAdapter(imageAdapter);
+
+
+}
 }

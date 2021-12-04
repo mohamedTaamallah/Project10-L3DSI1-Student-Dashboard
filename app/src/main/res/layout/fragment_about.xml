@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.NotificationFragment">
+    >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#e5e6e4">
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/Grid"
+            android:numColumns="1"
+            android:contextClickable="true"
+            android:minHeight="300dp"
+            android:isScrollContainer="true"
+            />
+
+
+
+
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/AddNotepad"
+            android:id="@+id/AddPhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -23,9 +42,10 @@
             android:layout_marginBottom="30dp"
             android:backgroundTint="#F8CF40"
             android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_note_add"
+            app:srcCompat="@drawable/float_button"
             tools:ignore="SpeakableTextPresentCheck" />
 
     </RelativeLayout>
 
-</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

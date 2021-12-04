@@ -55,10 +55,10 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     {
         ArrayList<Image> list_image = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
-        Cursor res  = db.rawQuery("select * from "+DATABASE_NAME+"Where matiere_id="+matiere_id,null);
+        Cursor res  = db.rawQuery("select * from "+DATABASE_NAME+" Where matiere_id ="+matiere_id,null);
         while(res.moveToNext()){
             String image_id = res.getString(0);
-            String description= res.getString(1);
+            String description= res.getString(2);
             byte[]   image = res.getBlob(3);
             Image image1 = new Image(image_id,description,image);
             list_image.add(image1);

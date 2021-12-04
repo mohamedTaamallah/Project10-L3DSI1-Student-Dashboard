@@ -1,11 +1,7 @@
 package com.example.project.Activites;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.icu.text.DateFormat;
-import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -20,10 +16,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.project.Adapters.ImportantDateAdapter;
-import com.example.project.Adapters.MyAdapter;
 import com.example.project.Adapters.MyContextApp;
-import com.example.project.Model.Matiere;
 import com.example.project.Model.date;
 import com.example.project.R;
 import com.google.firebase.database.DataSnapshot;
@@ -37,7 +30,6 @@ import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class liste_important_dates extends AppCompatActivity {
     Button addDate;
@@ -82,9 +74,6 @@ public class liste_important_dates extends AppCompatActivity {
 
 
                 }
-
-                ImportantDateAdapter DateAdapter = new ImportantDateAdapter(getApplicationContext(), liste_dates, mDataRef);
-                recyclerView.setAdapter(DateAdapter);
 
             }
 
