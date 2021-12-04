@@ -18,6 +18,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.project.Adapters.MyContextApp;
+import com.example.project.Fragments.AboutFragment;
+import com.example.project.Model.Image;
 import com.example.project.R;
 import com.example.project.SQL_lite.DataBaseHandler;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +31,8 @@ import com.google.firebase.storage.StorageTask;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class Upload_image_Activity extends AppCompatActivity {
 
@@ -50,7 +54,8 @@ public class Upload_image_Activity extends AppCompatActivity {
 
     private StorageTask mUploadTask;
     MyContextApp appContext;
-    private int photo_id= 0;
+    String matiere_id;
+    private static ArrayList<Image> list_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +86,19 @@ public class Upload_image_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(Upload_image_Activity.this, "Upload in progress", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Upload_image_Activity.this, matiere_id+ " ", Toast.LENGTH_SHORT).show();
                 } else {
-                    uploadFile();
+                     uploadFile();
+                    Intent intent=getIntent();
+
+                    matiere_id = intent.getStringExtra("matiere");
+
+
+
+                    Intent i = new Intent (Upload_image_Activity.this, AboutFragment.class);
+                    startActivity(i);
+                    i.putExtra("mat_id",matiere_id);
+
                 }
             }
         });
@@ -145,10 +160,10 @@ public class Upload_image_Activity extends AppCompatActivity {
     private void uploadFile() {
         if (mImageView != null) {
             Intent intent=getIntent();
-            String matiere_id = intent.getStringExtra("matiere");
-            Toast.makeText(Upload_image_Activity.this, matiere_id+"", Toast.LENGTH_SHORT).show();
+             matiere_id = intent.getStringExtra("matiere");
+             long photo_id = (new Date().getTime())/1000;
 
-            if(db.insertImage(String.valueOf(photo_id+1),mEditTextFileName.getText().toString(),imageViewToByte(mImageView),matiere_id))
+            if(db.insertImage(String.valueOf(photo_id),mEditTextFileName.getText().toString(),imageViewToByte(mImageView),String.valueOf(matiere_id)))
             {
                 Toast.makeText(Upload_image_Activity.this, "image enregistrée ", Toast.LENGTH_SHORT).show();
 
@@ -169,5 +184,9 @@ public class Upload_image_Activity extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         return byteArray;
+    }
+
+    public static ArrayList<Image> getList_image() {
+        return list_image;
     }
 }

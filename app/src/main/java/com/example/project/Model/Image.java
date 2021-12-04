@@ -2,7 +2,8 @@ package com.example.project.Model;
 
 public class Image {
     private String titre ;
-    private String image ;
+    private byte[] image ;
+    private String image_id;
 
     public String getTitre() {
         return titre;
@@ -12,23 +13,24 @@ public class Image {
         this.titre = titre;
     }
 
-    public String getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
-    public Image(String titre, String image) {
+    public Image(String image_id,String titre, byte[] image) {
         if (titre.trim().equals("")) {
             titre = "No Name";
         }
-
+        this.image_id=image_id;
         this.titre = titre;
         this.image = image;
     }
-    public Image() {
+    public Image(String image_id) {
+        this.image_id=image_id;
 
     }
 }

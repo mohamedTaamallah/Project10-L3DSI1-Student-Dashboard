@@ -96,6 +96,7 @@ public class home_page_activity extends AppCompatActivity  {
                 Intent intent = new Intent(getApplicationContext(), MatiereDetailsActivity.class);
                 // ASSIGNING DATA TO CONTEXT
                 appContext.setMatiere(mats.get(position));
+                intent.putExtra("matiere_id",mats.get(position).getId());
                 startActivity(intent);
             }
         };
@@ -106,6 +107,7 @@ public class home_page_activity extends AppCompatActivity  {
             public boolean onItemLongClicked(View v, int position) {
                 appContext.setMatiere(mats.get(position));
                 startActivity(new Intent(home_page_activity.this, EditMatierActivity.class));
+
                 //Toast.makeText(home_page_activity.this, "helllooooooo clikc", Toast.LENGTH_SHORT).show();
                 return true;
             }

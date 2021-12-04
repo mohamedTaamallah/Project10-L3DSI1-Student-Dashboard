@@ -55,6 +55,8 @@ public class MatiereDetailsActivity extends AppCompatActivity {
                     case 3:
                         //initilize About fragment
                         fragment = new AboutFragment(matiere_id);
+                        Toast.makeText(MatiereDetailsActivity.this, matiere_id+" ", Toast.LENGTH_SHORT).show();
+
                         break;
                 }
                 loadFragment(fragment, item);
@@ -72,7 +74,6 @@ public class MatiereDetailsActivity extends AppCompatActivity {
 
 
 
-                Toast.makeText(getApplicationContext(), matiere_id, Toast.LENGTH_SHORT).show();
             }
         });
         bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
