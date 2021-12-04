@@ -51,7 +51,7 @@ public class home_page_activity extends AppCompatActivity  {
         setContentView(R.layout.home_page);
         setTitle("Dashboard");
         appContext = (MyContextApp)getApplicationContext();
-        mDataRef = FirebaseDatabase.getInstance().getReference().child("Etudiant").child(appContext.getUid());
+        mDataRef = FirebaseDatabase.getInstance().getReference().child("Etudiant").child(appContext.getUid()).child("Matiere");
         //FloatingActionButton BtnAdd = findViewById(R.id.AddButton);
 
 

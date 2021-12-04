@@ -8,16 +8,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 
-import com.example.project.Adapters.ImageUploadAdapter;
-import com.example.project.Model.Image;
 import com.example.project.R;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.project.Activites.Upload_image_Activity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,7 +22,6 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class AboutFragment extends Fragment {
-    GridView coursesGV;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,7 +61,6 @@ public class AboutFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
@@ -75,13 +70,6 @@ public class AboutFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_about, container, false);
         FloatingActionButton addPhoto = v.findViewById(R.id.AddPhoto);
-        coursesGV = v.findViewById(R.id.idGVcourses);
-        ArrayList<Image> courseModelArrayList = new ArrayList<Image>();
-        courseModelArrayList.add(new Image("DSA"));
-        courseModelArrayList.add(new Image("JAVA"));
-
-        ImageUploadAdapter adapter = new ImageUploadAdapter(getActivity(), courseModelArrayList);
-        coursesGV.setAdapter(adapter);
         //Navigate to the add photo
         addPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +77,8 @@ public class AboutFragment extends Fragment {
                 Intent i =new Intent(getActivity(), Upload_image_Activity.class);
                 i.putExtra("matiere",mParam1);
                 startActivity(i);
+
+
             }
         });
         return v;

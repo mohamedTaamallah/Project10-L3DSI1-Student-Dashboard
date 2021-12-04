@@ -62,7 +62,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
         if(mats.get(position)!=null) {
             holder.matName.setText(mats.get(position).getName());
             holder.coef.setText(String.valueOf(mats.get(position).getCoef()));
-            System.out.println(mats.get(position).getTp());
             if(mats.get(position).getTp().isExist() == false) {
                 holder.tp.setVisibility(View.INVISIBLE);
             }

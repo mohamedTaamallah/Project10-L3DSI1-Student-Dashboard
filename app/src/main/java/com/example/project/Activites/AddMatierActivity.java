@@ -39,7 +39,7 @@ public class AddMatierActivity extends AppCompatActivity {
         setTitle("Ajouter une Matiere");
         appContext = (MyContextApp)getApplicationContext();
 
-        DatabaseReference reff  = FirebaseDatabase.getInstance().getReference("Etudiant").child(appContext.getUid());
+        DatabaseReference reff  = FirebaseDatabase.getInstance().getReference("Etudiant").child(appContext.getUid()).child("Matiere");
         Matiere matiere  = new Matiere();
 
         Button btnAjouter = findViewById(R.id.BtnAjouter);
