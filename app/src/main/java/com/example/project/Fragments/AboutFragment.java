@@ -134,7 +134,7 @@ public class AboutFragment extends Fragment {
     for (int i = 0; i <list_image.size() ; i++) {
         list_descritption.add(list_image.get(i).getTitre());
     }
-    Toast.makeText(getActivity(), list_images.size()+ "Test  ", Toast.LENGTH_SHORT).show();
+    //Toast.makeText(getActivity(), list_images.size()+ "Test  ", Toast.LENGTH_SHORT).show();
     ImageAdapter imageAdapter = new ImageAdapter(getActivity(),list_descritption,list_image,getActivity(),clickListener);
     gridView.setAdapter(imageAdapter);
     return imageAdapter;
