@@ -16,6 +16,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.project.Adapters.ImportantDateAdapter;
 import com.example.project.Adapters.MyContextApp;
 import com.example.project.Model.date;
 import com.example.project.R;
@@ -74,7 +75,8 @@ public class liste_important_dates extends AppCompatActivity {
 
 
                 }
-
+                ImportantDateAdapter DateAdapter = new ImportantDateAdapter(getApplicationContext(), liste_dates, mDataRef);
+                recyclerView.setAdapter(DateAdapter);
             }
 
             @Override

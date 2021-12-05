@@ -69,4 +69,11 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     }
 
+    //delete image
+    public Boolean deleteProduct(String id){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM "+DATABASE_NAME+" WHERE photo_id=?",
+                new String[]{id});
+        return true;
+    }
 }

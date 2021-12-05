@@ -13,17 +13,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#e5e6e4">
-        <GridView
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Grid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/Grid"
-            android:numColumns="1"
-            android:contextClickable="true"
-            android:minHeight="300dp"
-            android:isScrollContainer="true"
-            />
 
-
+             />
 
 
     </LinearLayout>

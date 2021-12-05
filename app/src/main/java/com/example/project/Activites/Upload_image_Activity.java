@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.project.Adapters.MyContextApp;
 import com.example.project.Fragments.AboutFragment;
+import com.example.project.Fragments.HomeFragment;
 import com.example.project.Model.Image;
 import com.example.project.R;
 import com.example.project.SQL_lite.DataBaseHandler;
@@ -29,7 +31,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -93,11 +97,9 @@ public class Upload_image_Activity extends AppCompatActivity {
 
                     matiere_id = intent.getStringExtra("matiere");
 
-
-
-                    Intent i = new Intent (Upload_image_Activity.this, AboutFragment.class);
-                    startActivity(i);
+                    Intent i = new Intent (Upload_image_Activity.this, home_page_activity.class);
                     i.putExtra("mat_id",matiere_id);
+                    startActivity(i);
 
                 }
             }
@@ -134,14 +136,9 @@ public class Upload_image_Activity extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
-            InputStream inputStream = null;
-            try {
-                inputStream = getContentResolver().openInputStream(mImageUri);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+            Bitmap bitmap = uriToBitmap(mImageUri);
 
-            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
                 mImageView.setImageBitmap(bitmap);
         }
         else if(requestCode==REQUEST_IMAGE_CAPTURE&&resultCode==RESULT_OK )
@@ -189,5 +186,19 @@ public class Upload_image_Activity extends AppCompatActivity {
 
     public static ArrayList<Image> getList_image() {
         return list_image;
+    }
+    private Bitmap uriToBitmap(Uri selectedFileUri) {
+        try {
+            ParcelFileDescriptor parcelFileDescriptor =
+                    getContentResolver().openFileDescriptor(selectedFileUri, "r");
+            FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+            Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+
+            parcelFileDescriptor.close();
+            return image;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return  null;
     }
 }
