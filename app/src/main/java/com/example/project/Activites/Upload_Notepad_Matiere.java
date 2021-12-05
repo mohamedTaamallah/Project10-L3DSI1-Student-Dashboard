@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.project.Adapters.MyContextApp;
 import com.example.project.Model.Control;
 import com.example.project.Model.Examen;
+import com.example.project.Model.Notepad;
 import com.example.project.Model.TP;
 import com.example.project.R;
 import com.google.firebase.database.DataSnapshot;
@@ -73,8 +74,9 @@ public class Upload_Notepad_Matiere extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (TextUtils.isEmpty(mEditTextNote.getText()) == false) {
-
-                    mDatabaseRef.child(String.valueOf(maxid+1)).setValue(mEditTextNote.getText().toString());
+                    Notepad np = new Notepad();
+                    np.setTexte(mEditTextNote.getText().toString());
+                    mDatabaseRef.child(String.valueOf(maxid+1)).setValue(np);
                     Toast.makeText(Upload_Notepad_Matiere.this,"votre note à était ajouté ",Toast.LENGTH_SHORT).show();
                     reset();
 
