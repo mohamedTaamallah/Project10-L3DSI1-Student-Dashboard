@@ -75,10 +75,8 @@ public class liste_important_dates extends AppCompatActivity {
 
 
                 }
-
                 ImportantDateAdapter DateAdapter = new ImportantDateAdapter(getApplicationContext(), liste_dates, mDataRef);
                 recyclerView.setAdapter(DateAdapter);
-
             }
 
             @Override

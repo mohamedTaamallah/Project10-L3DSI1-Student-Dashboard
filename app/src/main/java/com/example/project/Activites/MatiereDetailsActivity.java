@@ -32,7 +32,7 @@ public class MatiereDetailsActivity extends AppCompatActivity {
 
         bottomNavigation = findViewById(R.id.bottom_navigation);
         // add menu item
-        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_baseline_sticky_note));
+        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_notification));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_home));
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_about));
 
@@ -45,7 +45,7 @@ public class MatiereDetailsActivity extends AppCompatActivity {
                 switch (item.getId()) {
                     case 1:
                         //initilize notification fragment
-                        fragment = new NotificationFragment(matiere_id);
+                        fragment = new NotificationFragment();
                         break;
                     case 2:
                         //initilize Home fragment
@@ -55,6 +55,8 @@ public class MatiereDetailsActivity extends AppCompatActivity {
                     case 3:
                         //initilize About fragment
                         fragment = new AboutFragment(matiere_id);
+                        Toast.makeText(MatiereDetailsActivity.this, matiere_id+" ", Toast.LENGTH_SHORT).show();
+
                         break;
                 }
                 loadFragment(fragment, item);
@@ -62,7 +64,7 @@ public class MatiereDetailsActivity extends AppCompatActivity {
         });
 
         //set notificiton count
-        //bottomNavigation.setCount(1, "10");
+        bottomNavigation.setCount(1, "10");
         // set Home fragmetn initially selected
         bottomNavigation.show(2, true);
 
@@ -72,7 +74,6 @@ public class MatiereDetailsActivity extends AppCompatActivity {
 
 
 
-                //Toast.makeText(getApplicationContext(), matiere_id, Toast.LENGTH_SHORT).show();
             }
         });
         bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {

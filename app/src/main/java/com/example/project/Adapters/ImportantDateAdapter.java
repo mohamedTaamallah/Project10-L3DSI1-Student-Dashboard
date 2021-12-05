@@ -2,6 +2,7 @@ package com.example.project.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,7 +65,7 @@ public class ImportantDateAdapter extends RecyclerView.Adapter<ImportantDateAdap
     public int getItemCount() {
         return list.size(); }
 
-    public class MyviewHolder1 extends RecyclerView.ViewHolder{
+    public class MyviewHolder1 extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
         TextView desc,hor,day;
         ImageView delete;
         ;
@@ -78,6 +79,12 @@ public class ImportantDateAdapter extends RecyclerView.Adapter<ImportantDateAdap
         }
 
 
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            int test = this.getAdapterPosition();
+            menu.add(this.getAdapterPosition(),test,0,"Go to Wikipedia ");
+            menu.add(this.getAdapterPosition(),test,0,"delete");
+        }
     }
 }
 
