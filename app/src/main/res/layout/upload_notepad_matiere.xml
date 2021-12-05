@@ -43,7 +43,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="Entrer nom de matiere" />
+                android:hint="Entrer le texte" />
         </RelativeLayout>
 
 

@@ -7,6 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.project.Model.Image;
+
+import java.sql.Blob;
+import java.util.ArrayList;
+
 public class DataBaseHandler extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "stockage_photo";
@@ -45,8 +50,30 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
 
     }
-    public Cursor getData(String sql){
-        SQLiteDatabase database = getReadableDatabase();
-        return database.rawQuery(sql, null);
+    //get all images by matiere
+    public ArrayList<Image> getAllImage(String matiere_id)
+    {
+        ArrayList<Image> list_image = new ArrayList<>();
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor res  = db.rawQuery("select * from "+DATABASE_NAME+" Where matiere_id ="+matiere_id,null);
+        while(res.moveToNext()){
+            String image_id = res.getString(0);
+            String description= res.getString(2);
+            byte[]   image = res.getBlob(3);
+            Image image1 = new Image(image_id,description,image);
+            list_image.add(image1);
+
+
+        }
+        return list_image;
+
+    }
+
+    //delete image
+    public Boolean deleteProduct(String id){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM "+DATABASE_NAME+" WHERE photo_id=?",
+                new String[]{id});
+        return true;
     }
 }
