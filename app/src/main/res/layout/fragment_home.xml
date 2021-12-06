@@ -20,7 +20,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/background_rounded"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/frame"
                 android:orientation="vertical">
 
                 <TextView
@@ -28,10 +32,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
-                    android:textColor="@color/white"
-                    android:textSize="45dp"
+                    android:text="matier"
                     android:textAlignment="center"
-                    android:text="matier"/>
+                    android:textColor="@color/white"
+                    android:textSize="45dp" />
 
                 <TextView
                     android:id="@+id/txtViewDC"
@@ -52,7 +56,6 @@
                     android:textColor="@color/white"
                     android:textFontWeight="3"
                     android:textSize="30dp" />
-
 
 
                 <TextView
@@ -95,41 +98,28 @@
                     android:textFontWeight="3"
                     android:textSize="30dp" />
 
-                <HorizontalScrollView
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="50dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:orientation="horizontal">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/EditNote"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="70dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/EditNote"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="40dp"
-                            android:layout_marginRight="10dp"
-                            android:clickable="true"
-                            android:text="Modifer notes "
-                            android:textAlignment="center"
-                            android:textColor="@color/white"
-                            android:textSize="15dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="10dp"
-                            android:text="Supprimer Notes  "
-                            android:textColor="@color/white"
-                            android:textSize="15dp" />
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="10dp"
+                        android:clickable="true"
+                        android:text="Modifer notes "
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="25dp" />
 
 
-                    </LinearLayout>
+                </LinearLayout>
 
-                </HorizontalScrollView>
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

@@ -147,8 +147,6 @@ public class home_page_activity extends AppCompatActivity  {
         int id = item.getItemId();
         if(id == R.id.logout){
             logout(appContext);
-        }else if(id == R.id.btnUpload){
-            startActivity(new Intent(this, Upload_image_Activity.class));
         }else if(id == R.id.BtnDates){
             startActivity(new Intent(this, liste_important_dates.class));
         }

@@ -33,22 +33,25 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyviewHolder
 
     private Context context;
     private ArrayList<String> titre;
-    private LayoutInflater layoutInflater;
     private ArrayList<Image> Images;
     private Activity parentActivity;
-    private RecycleViewClickListener clickListener;
+    private DataBaseHandler db;
+    private Image image;
 
-
-
-    public ImageAdapter(Context context, ArrayList<String> titre, ArrayList<Image> images, Activity parentActivity, ImageAdapter.RecycleViewClickListener clickListener) {
+    public ImageAdapter(Context context, ArrayList<String> titre, ArrayList<Image> images, Activity parentActivity) {
         this.context = context;
         this.titre = titre;
-        this.layoutInflater = layoutInflater;
         Images = images;
         this.parentActivity=parentActivity;
-        this.clickListener = clickListener;
 
     }
+    public ImageAdapter(Context context, Image image, Activity parentActivity) {
+        this.context = context;
+        this.image =image;
+        this.parentActivity=parentActivity;
+
+    }
+
 
 
     @NonNull
@@ -67,71 +70,55 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyviewHolder
         byte[] ima = imagess.getImage();
 
         holder.imageView.setImageBitmap(BitmapFactory.decodeByteArray(ima, 0, ima.length));
-        holder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog(Images.get(position),db,position);
-                notifyDataSetChanged();
-            }
-        });
 
 
 
     }
+
+    public Boolean deleteItem(int id)
+    {  Boolean resultat= false;
+        if(this.Images.remove(id)!=null)
+            resultat=true;
+        notifyDataSetChanged();
+        return  resultat;
+
+    }
+    public void updateImage(String id , String desc)
+    {
+        db.updateImage(this.image.getImage_id(),desc);
+        notifyDataSetChanged();
+    }
+
 
     @Override
     public int getItemCount() {
         return Images.size();
     }
 
-    public class MyviewHolder2 extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class MyviewHolder2 extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
         ImageView imageView;
         TextView desc;
-        ImageView delete ;
+        ImageView delete;
+
         public MyviewHolder2(@NonNull View itemView) {
             super(itemView);
             desc = itemView.findViewById(R.id.description);
-            delete =itemView.findViewById(R.id.delete);
+            delete = itemView.findViewById(R.id.delete);
             imageView = itemView.findViewById(R.id.Image);
+            itemView.setOnCreateContextMenuListener(this);
         }
+
 
         @Override
-        public void onClick(View view) {
-            clickListener.onClick(itemView, getAdapterPosition());
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            int test = this.getAdapterPosition();
+            menu.add(this.getAdapterPosition(),test,0,"View photo ");
+            menu.add(this.getAdapterPosition(),test,0,"delete");
+            notifyDataSetChanged();
         }
-
-    }
-    public interface RecycleViewClickListener {
-        void onClick(View v, int positon);
     }
 
 
 
 
-
-    private void alertDialog(Image image,DataBaseHandler db ,int position) {
-        AlertDialog.Builder dialog=new AlertDialog.Builder(context);
-        dialog.setMessage("Supprimer image");
-        dialog.setTitle("Vous etes entrain de supprimer une photo ");
-
-
-        dialog.setPositiveButton("valider",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int which) {
-                        db.deleteProduct(image.getImage_id());
-                        Images.remove(position);
-                        notifyDataSetChanged();
-
-                    }
-                });
-        dialog.setNegativeButton("Annuler",new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-        AlertDialog alertDialog=dialog.create();
-        alertDialog.show();
-        notifyDataSetChanged();
-
-    }
 }

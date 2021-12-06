@@ -28,32 +28,22 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/card_date_color"
+            android:background="@drawable/card_image_color"
             android:orientation="vertical">
 
 
             <TextView
                 android:id="@+id/description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="30dp"
                 android:text="titre"
                 android:textColor="#ffffff"
                 android:textSize="24dp"
 
                 />
-
-            <ImageView
-                android:id="@+id/delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="330dp"
-                android:layout_marginTop="5dp"
-                android:background="@android:drawable/ic_delete"
-                android:clickable="true"
-                android:text="delete"
-                android:textColor="@color/white" />
 
             <ImageView
                 android:id="@+id/Image"

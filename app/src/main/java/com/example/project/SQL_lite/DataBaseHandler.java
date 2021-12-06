@@ -76,4 +76,15 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 new String[]{id});
         return true;
     }
+    //update image
+    public Boolean updateImage(String id,String desc)
+    {
+        SQLiteDatabase db =getWritableDatabase();
+        //db.execSQL("UPDATE "+DATABASE_NAME+" SET reference=?,designiation=?,prix=?,quantite=? " +
+        //"Where produit_id=?",new String[]{ref,des,String.valueOf(prix),String.valueOf(quantite),produit_id});
+        ContentValues image = new ContentValues();
+        image.put("description", desc);
+        db.update(DATABASE_NAME, image, "photo_id=?", new String[]{id});
+        return true ;
+    }
 }
