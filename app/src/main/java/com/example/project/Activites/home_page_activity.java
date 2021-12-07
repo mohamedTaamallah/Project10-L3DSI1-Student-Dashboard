@@ -3,6 +3,7 @@ package com.example.project.Activites;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -151,6 +152,18 @@ public class home_page_activity extends AppCompatActivity  {
             startActivity(new Intent(this, liste_important_dates.class));
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        if(item.getTitle().equals("Update")) {
+            appContext.setMatiere(mats.get(item.getItemId()));
+            startActivity(new Intent(getApplicationContext(), EditMatierActivity.class));
+        }else if(item.getTitle().equals("Delete")) {
+            String index = mats.get(item.getItemId()).getId();
+            Toast.makeText(getApplicationContext(), "Matiere supprimée", Toast.LENGTH_SHORT).show();
+            mDataRef.child(index).removeValue();
+        }
+        return super.onContextItemSelected(item);
     }
     //Logout
     public void logout(Context context) {
