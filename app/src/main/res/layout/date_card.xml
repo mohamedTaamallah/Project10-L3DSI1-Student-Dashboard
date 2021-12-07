@@ -44,17 +44,6 @@
 
                 />
 
-            <ImageView
-                android:id="@+id/delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="330dp"
-                android:background="@android:drawable/ic_delete"
-                android:clickable="true"
-                android:text="delete"
-                android:textColor="@color/white" />
-
             <TextView
                 android:id="@+id/horaire"
                 android:layout_width="80dp"

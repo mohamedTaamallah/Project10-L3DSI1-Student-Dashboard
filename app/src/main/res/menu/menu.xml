@@ -8,9 +8,6 @@
         app:showAsAction="never"
         />
 
-    <item android:title="upload image"
-        android:id="@+id/btnUpload"
-        app:showAsAction="never"/>
 
     <item android:title="Logout"
         android:id="@+id/logout"

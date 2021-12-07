@@ -20,16 +20,21 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
-            android:name=".Activites.EditNotePadActivity"
+            android:name=".Activites.ViewPhotoActivity"
             android:exported="true" />
         <activity
             android:name=".Activites.EditMatierActivity"
             android:exported="true" />
+      
+      <activity
+            android:name=".Activites.EditNotePadActivity"
+            android:exported="true" />
+      
+      
         <activity
             android:name=".Activites.EditNotesActivity"
             android:exported="true" />
@@ -57,6 +62,7 @@
         <activity android:name=".Activites.Upload_image_Activity" />
         <activity android:name=".Activites.Important_dates_Activity" />
         <activity android:name=".Activites.liste_important_dates" />
+        <activity android:name=".Activites.ListePhotoActivity" />
         <activity android:name=".Activites.Upload_Notepad_Matiere" />
     </application>
 

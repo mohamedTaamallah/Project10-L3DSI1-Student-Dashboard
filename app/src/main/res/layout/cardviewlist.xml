@@ -45,17 +45,6 @@
                 />
 
 
-            <ImageView
-                android:id="@+id/BtnDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
-                android:background="@android:drawable/ic_delete"
-                android:clickable="true"
-                android:text="delete"
-                android:textColor="@color/white" />
-
             <TextView
                 android:id="@+id/coef"
                 android:layout_width="80dp"
