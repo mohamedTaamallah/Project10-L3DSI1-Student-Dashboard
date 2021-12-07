@@ -7,6 +7,15 @@ public class Matiere {
     private TP Tp  ;
     private Examen Exam ;
     private Control Dc ;
+    private Notepad notepad;
+
+    public Notepad getNotepad() {
+        return notepad;
+    }
+
+    public void setNotepad(Notepad notepad) {
+        this.notepad = notepad;
+    }
 
     public String getId() {
         return id;
@@ -18,7 +27,7 @@ public class Matiere {
 
     public Matiere (){}
 
-    public Matiere(String name, float coef, TP tp, Examen exam, Control dc) {
+    public Matiere(String name, float coef, TP tp, Examen exam, Control dc ) {
         this.name = name;
         this.coef = coef;
         Tp = tp;

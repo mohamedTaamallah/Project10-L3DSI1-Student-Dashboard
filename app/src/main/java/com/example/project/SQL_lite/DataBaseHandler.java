@@ -87,4 +87,11 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.update(DATABASE_NAME, image, "photo_id=?", new String[]{id});
         return true ;
     }
+    public Boolean deleteImage(String id){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM "+DATABASE_NAME+" WHERE matiere_id=?",
+                new String[]{id});
+        return true;
+
+    }
 }

@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#427aa1">
+        android:background="#5465ff">
         <!-- 80 -->
         <TextView
             android:id="@+id/some_id"

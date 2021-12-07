@@ -103,7 +103,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyviewHolder
         public MyviewHolder2(@NonNull View itemView) {
             super(itemView);
             desc = itemView.findViewById(R.id.description);
-            delete = itemView.findViewById(R.id.delete);
             imageView = itemView.findViewById(R.id.Image);
             itemView.setOnCreateContextMenuListener(this);
         }

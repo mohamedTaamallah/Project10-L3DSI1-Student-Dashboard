@@ -95,7 +95,6 @@ public class AboutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        DataBaseHandler db = new DataBaseHandler(getActivity());
 
 
         // Inflate the layout for this fragment

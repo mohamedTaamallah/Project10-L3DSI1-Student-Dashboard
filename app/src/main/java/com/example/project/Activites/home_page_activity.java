@@ -22,6 +22,7 @@ import com.example.project.Adapters.MyContextApp;
 import com.example.project.Model.Matiere;
 import com.example.project.Adapters.MyAdapter;
 import com.example.project.R;
+import com.example.project.SQL_lite.DataBaseHandler;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -42,7 +43,7 @@ public class home_page_activity extends AppCompatActivity  {
     MyAdapter.RecycleViewClickListener clickListener;
     MyAdapter.RecyclerViewLongClick longClickListener;
     MyContextApp appContext;
-
+    DataBaseHandler db;
     RecyclerView recyclerView;
     ArrayList<Matiere> mats;
     MyAdapter myAdapter;
@@ -51,6 +52,7 @@ public class home_page_activity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
         setTitle("Dashboard");
+         db = new DataBaseHandler(this);
         appContext = (MyContextApp)getApplicationContext();
         mDataRef = FirebaseDatabase.getInstance().getReference().child("Etudiant").child(appContext.getUid()).child("Matiere");
         //FloatingActionButton BtnAdd = findViewById(R.id.AddButton);
@@ -160,8 +162,12 @@ public class home_page_activity extends AppCompatActivity  {
             startActivity(new Intent(getApplicationContext(), EditMatierActivity.class));
         }else if(item.getTitle().equals("Delete")) {
             String index = mats.get(item.getItemId()).getId();
+            db.deleteImage(String.valueOf(index));
+
+
             Toast.makeText(getApplicationContext(), "Matiere supprimée", Toast.LENGTH_SHORT).show();
             mDataRef.child(index).removeValue();
+
         }
         return super.onContextItemSelected(item);
     }

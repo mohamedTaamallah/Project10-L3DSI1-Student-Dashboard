@@ -33,6 +33,8 @@ public class ListePhotoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_photo);
 
+        setTitle("Liste Image");
+
         db = new DataBaseHandler(this);
         Intent i = getIntent();
         String matiere_id = i.getStringExtra("matiere");
@@ -121,6 +123,5 @@ public class ListePhotoActivity extends AppCompatActivity {
         });
         AlertDialog alertDialog=dialog.create();
         alertDialog.show();
-
     }
 }

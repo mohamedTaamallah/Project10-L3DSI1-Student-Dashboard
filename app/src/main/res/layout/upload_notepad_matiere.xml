@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="60dp"
             android:background="@drawable/input_field">
 
@@ -43,21 +43,22 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="Entrer le texte" />
+                android:hint="Entrer le texte"
+                android:minHeight="48dp" />
         </RelativeLayout>
 
 
         <Button
-            android:id="@+id/BtnAjouter"
+            android:id="@+id/AddNotepad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="24sp"
+            android:layout_marginRight="30dp"
             android:layout_marginBottom="24sp"
             android:background="@drawable/ic_android_black_24dp"
             android:text="Ajouter"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:textColor="@color/white" />
 
     </LinearLayout>
