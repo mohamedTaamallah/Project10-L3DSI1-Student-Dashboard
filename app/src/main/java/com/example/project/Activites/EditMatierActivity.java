@@ -38,8 +38,7 @@ public class EditMatierActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_matier);
         app = (MyContextApp)getApplicationContext();
 
-        DatabaseReference reff  = FirebaseDatabase.getInstance().getReference("Etudiant")
-                .child(app.getUid()).child("Matiere").child(app.getMatiere().getId());
+        DatabaseReference reff  = FirebaseDatabase.getInstance().getReference("Etudiant").child(app.getUid()).child("Matiere").child(app.getMatiere().getId());
         matiere  = new Matiere();
 
         Nom = findViewById(R.id.txtName);
@@ -50,20 +49,19 @@ public class EditMatierActivity extends AppCompatActivity {
         BtnTp = findViewById(R.id.BtnTp);
         BtnExam = findViewById(R.id.BtnExamen);
         BtnDc = findViewById(R.id.BtnDc);
-
-       reff.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    matiere = snapshot.getValue(Matiere.class);
+            reff.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        matiere = snapshot.getValue(Matiere.class);
+                    }
+                    System.out.println("EditActivity: Inside........................................");
+                    System.out.println(matiere);
                 }
-                System.out.println("EditActivity: Inside........................................");
-                System.out.println(matiere);
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            });
         System.out.println("EditActivity: Outside........................................");
         System.out.println(matiere);
         initialDefaultValue();
@@ -93,6 +91,7 @@ public class EditMatierActivity extends AppCompatActivity {
 
                     reff.setValue(matiere);
                     Toast.makeText(getApplicationContext(),"votre matiere a etait Modifier ",Toast.LENGTH_SHORT).show();
+                    matiere.setId(app.getMatiere().getId());
                     //reset();
 
                 }

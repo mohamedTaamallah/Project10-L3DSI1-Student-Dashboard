@@ -29,6 +29,12 @@
         <activity
             android:name=".Activites.EditMatierActivity"
             android:exported="true" />
+      
+      <activity
+            android:name=".Activites.EditNotePadActivity"
+            android:exported="true" />
+      
+      
         <activity
             android:name=".Activites.EditNotesActivity"
             android:exported="true" />
