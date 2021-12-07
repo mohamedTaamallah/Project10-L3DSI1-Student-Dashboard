@@ -46,17 +46,6 @@ public class ImportantDateAdapter extends RecyclerView.Adapter<ImportantDateAdap
             holder.desc.setText(list.get(position).getDescription());
             holder.hor.setText(list.get(position).getTime());
             holder.day.setText(list.get(position).getDate());
-        holder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String index = list.get(position).getId();
-                Toast.makeText(holder.desc.getContext(), "Evenement supprimée", Toast.LENGTH_SHORT).show();
-                firebaseDatabase.child(index).removeValue();
-            }
-        });
-
-
-
 
 
     }
