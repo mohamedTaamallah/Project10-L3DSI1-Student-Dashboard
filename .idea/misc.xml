@@ -20,6 +20,10 @@
         <entry key="..\:/LinuxShares/ISET/2021-2022_L3DSI1/Atelier Developpment Mobile/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/menu/logout.xml" value="0.3625" />
         <entry key="..\:/LinuxShares/ISET/2021-2022_L3DSI1/Atelier Developpment Mobile/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/menu/menu.xml" value="0.3625" />
         <entry key="..\:/LinuxShares/ISET/2021-2022_L3DSI1/Atelier Developpment Mobile/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/mipmap-anydpi-v26/upload_image_round.xml" value="0.22083333333333333" />
+        <entry key="..\:/LinuxShares/ISET/2021-2022_L3DSI1/Atelier Developpment Mobile/Android_Projet_Integration/app/src/main/res/layout/activity_edit_note_pad.xml" value="0.22083333333333333" />
+        <entry key="..\:/LinuxShares/ISET/2021-2022_L3DSI1/Atelier Developpment Mobile/Android_Projet_Integration/app/src/main/res/layout/cardviewlist.xml" value="0.22083333333333333" />
+        <entry key="..\:/LinuxShares/ISET/2021-2022_L3DSI1/Atelier Developpment Mobile/Android_Projet_Integration/app/src/main/res/layout/notepad_card.xml" value="0.2115036231884058" />
+        <entry key="..\:/LinuxShares/ISET/2021-2022_L3DSI1/Atelier Developpment Mobile/Android_Projet_Integration/app/src/main/res/layout/upload_notepad_matiere.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/bottom_navigation.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/Projet_Android-Develop/app/src/main/res/drawable/button_test.xml" value="0.14583333333333334" />
@@ -65,30 +69,6 @@
         <entry key="..\:/Users/adamk/AndroidStudioProjects/project/app/src/main/res/layout/cardviewlist.xml" value="0.33" />
         <entry key="..\:/Users/adamk/AndroidStudioProjects/project/app/src/main/res/layout/home_page.xml" value="0.25" />
         <entry key="..\:/Users/adamk/AndroidStudioProjects/project/app/src/main/res/layout/testlayout.xml" value="0.36594202898550726" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.3828125" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/drawable/ic_baseline_note_add.xml" value="0.3828125" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/drawable/ic_baseline_sticky_note.xml" value="0.3828125" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/drawable/ic_notification.xml" value="0.3828125" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/drawable/input_field.xml" value="0.3828125" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/drawable/logo.xml" value="0.3828125" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/activity_add_matier.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/activity_edit_matier.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/activity_edit_notes.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/activity_matiere_details.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/cardviewlist.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/fragment_about.xml" value="0.1388888888888889" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/fragment_notification.xml" value="0.1388888888888889" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/home_page.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/image_card.xml" value="0.36102564102564105" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/important_dates.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/liste_important_dates.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/notepad_card.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/raw_list.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/start_screen.xml" value="0.27314814814814814" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/upload_image.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/layout/upload_notepad_matiere.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/onehu/AndroidStudioProjects/Android_Projet_Integration/app/src/main/res/menu/menu.xml" value="0.20520833333333333" />
       </map>
     </option>
   </component>

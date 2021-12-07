@@ -25,6 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
+            android:name=".Activites.EditNotePadActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activites.EditMatierActivity"
             android:exported="true" />
         <activity

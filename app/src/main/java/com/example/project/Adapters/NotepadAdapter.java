@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,8 @@ import com.example.project.Model.Image;
 import com.example.project.Model.Notepad;
 import com.example.project.R;
 import com.example.project.SQL_lite.DataBaseHandler;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -26,16 +29,18 @@ public class NotepadAdapter extends RecyclerView.Adapter<NotepadAdapter.MyviewHo
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private ArrayList<Notepad> Note;
+    private ArrayList<Notepad> ListNotes;
     private Activity parentActivity;
     private RecycleViewClickListener clickListener;
+    DatabaseReference firebaseDatabase;
 
-    public NotepadAdapter(Context context, ArrayList<Notepad> note, Activity parentActivity, NotepadAdapter.RecycleViewClickListener clickListener) {
+    public NotepadAdapter(Context context, ArrayList<Notepad> note, Activity parentActivity,DatabaseReference database, NotepadAdapter.RecycleViewClickListener clickListener) {
         this.context = context;
         this.layoutInflater = layoutInflater;
-        this.Note = note;
+        this.ListNotes = note;
         this.parentActivity = parentActivity;
         this.clickListener = clickListener;
+        this.firebaseDatabase = database;
     }
 
     @NonNull
@@ -49,34 +54,39 @@ public class NotepadAdapter extends RecyclerView.Adapter<NotepadAdapter.MyviewHo
     @Override
     public void onBindViewHolder(@NonNull NotepadAdapter.MyviewHolder2 holder, @SuppressLint("RecyclerView") int position) {
         //Notepad n = Note.get(position);
-        if(Note.get(position)!=null) {
-            holder.desc.setText(Note.get(position).getTexte());
+        if(ListNotes.get(position)!=null) {
+            holder.desc.setText(ListNotes.get(position).getTexte());
         }
 
 
-        /*
+
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                alertDialog(Images.get(position),db,position);
+
+                DeleteNote(position);
+                //mDataRef = FirebaseDatabase.getInstance().getReference("Etudiant").child(app.getUid()).child("Matiere").child(app.getMatiere().getId()).child("Notepad");
+                /*String index = ListNotes.get(position).getId();
+                Toast.makeText(holder.delete.getContext(), "Note supprimée" + position, Toast.LENGTH_SHORT).show();
+                firebaseDatabase.child(String.valueOf(index)).removeValue();*/
                 notifyDataSetChanged();
             }
-        });*/
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return Note.size();
+        return ListNotes.size();
 
     }
     public class MyviewHolder2 extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView desc;
-        //ImageView delete ;
+        ImageView delete ;
         public MyviewHolder2(@NonNull View itemView) {
             super(itemView);
             desc = itemView.findViewById(R.id.texte);
-            //delete =itemView.findViewById(R.id.supprimer);
+            delete = itemView.findViewById(R.id.supprimer);
             itemView.setOnClickListener(this);
         }
 
@@ -93,20 +103,17 @@ public class NotepadAdapter extends RecyclerView.Adapter<NotepadAdapter.MyviewHo
 
 
 
-/*
-    private void alertDialog(Image image,DataBaseHandler db ,int position) {
+
+    private void alertDialog(int position) {
         AlertDialog.Builder dialog=new AlertDialog.Builder(context);
-        dialog.setMessage("Supprimer image");
-        dialog.setTitle("Vous etes entrain de supprimer une photo ");
+        dialog.setMessage("Supprimer la note");
+        dialog.setTitle("Vous etes entrain de supprimer une note ");
 
 
         dialog.setPositiveButton("valider",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int which) {
-                        db.deleteProduct(image.getImage_id());
-                        Images.remove(position);
-                        notifyDataSetChanged();
-
+                        DeleteNote(position);
                     }
                 });
         dialog.setNegativeButton("Annuler",new DialogInterface.OnClickListener() {
@@ -119,6 +126,10 @@ public class NotepadAdapter extends RecyclerView.Adapter<NotepadAdapter.MyviewHo
         notifyDataSetChanged();
 
     }
-*/
+    public void DeleteNote(int position) {
+          String index = ListNotes.get(position).getId();
+          //Toast.makeText(parentActivity.getApplicationContext(), "Note supprimée" + position, Toast.LENGTH_SHORT).show();
+          firebaseDatabase.child(String.valueOf(index)).removeValue();
+      }
 
 }

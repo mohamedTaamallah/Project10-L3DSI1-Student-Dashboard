@@ -94,6 +94,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        System.out.println("Matiere A modifier: "  +app.getMatiere());
         changeMatierName(matiere.getName());
         TextView EditNote = (TextView) getView().findViewById(R.id.EditNote);
         noteDC = (TextView) getView().findViewById(R.id.noteDC);
