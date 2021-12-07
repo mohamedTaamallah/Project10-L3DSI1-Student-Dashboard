@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.project.Activites.EditNotePadActivity;
 import com.example.project.Activites.Upload_Notepad_Matiere;
 import com.example.project.Activites.Upload_image_Activity;
 import com.example.project.Adapters.ImageAdapter;
@@ -52,7 +53,8 @@ public class NotificationFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     //private String mParam2;
-
+    ArrayList <Notepad> list_descritption;
+    DatabaseReference mDataRef;
     public NotificationFragment(String matiere_id) {
         // Required empty public constructor
         mParam1=matiere_id;
@@ -124,13 +126,12 @@ public class NotificationFragment extends Fragment {
     MyContextApp app;
     //public NotepadAdapter afficher (--Firebase db, RecyclerView gridView ){
     public void afficher (RecyclerView gridView ){
-        DatabaseReference mDataRef;
+
         app = (MyContextApp) getActivity().getApplicationContext();
-                   //FirebaseDatabase.getInstance().getReference("Etudiant").child(appContext.getUid()).child("Matiere").child(appContext.getMatiere().getId()).child("Notepad");
-        //mDataRef = FirebaseDatabase.getInstance().getReference().child("Etudiant").child(app.getUid()).child("Matiere").child(mParam1).child("Notepad");
+        System.out.println(app.getMatiere());
         mDataRef = FirebaseDatabase.getInstance().getReference("Etudiant").child(app.getUid()).child("Matiere").child(app.getMatiere().getId()).child("Notepad");
 
-        ArrayList <Notepad> list_descritption  = new ArrayList <>();
+        list_descritption  = new ArrayList <>();
 
 
         mDataRef.addValueEventListener(new ValueEventListener() {
@@ -144,7 +145,7 @@ public class NotificationFragment extends Fragment {
                     not.setId(postSnapshot.getKey());
                     list_descritption.add(not);
                 }
-                NotepadAdapter notepadAdapter = new NotepadAdapter(app,list_descritption,getActivity(),clickListener);
+                NotepadAdapter notepadAdapter = new NotepadAdapter(app,list_descritption,getActivity(), mDataRef,clickListener);
                 gridView.setAdapter(notepadAdapter);
 
             }
@@ -163,7 +164,14 @@ public class NotificationFragment extends Fragment {
         clickListener = new NotepadAdapter.RecycleViewClickListener() {
             @Override
             public void onClick(View v, int position) {
-                Log.d("testing","testing");
+                System.out.println(list_descritption.get(position).getTexte());
+                Intent i = new Intent(getActivity().getApplicationContext(), EditNotePadActivity.class);
+
+                app = (MyContextApp) getActivity().getApplicationContext();
+                app.setNotepad(list_descritption.get(position));
+
+                startActivity(i);
+
             }
         };
     }

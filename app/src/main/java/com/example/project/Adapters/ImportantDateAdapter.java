@@ -46,21 +46,17 @@ public class ImportantDateAdapter extends RecyclerView.Adapter<ImportantDateAdap
             holder.desc.setText(list.get(position).getDescription());
             holder.hor.setText(list.get(position).getTime());
             holder.day.setText(list.get(position).getDate());
-        holder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String index = list.get(position).getId();
-                Toast.makeText(holder.desc.getContext(), "Evenement supprimée", Toast.LENGTH_SHORT).show();
-                firebaseDatabase.child(index).removeValue();
-            }
-        });
-
-
-
 
 
     }
+    public Boolean deleteItem(int id)
+    {  Boolean resultat= false;
+        if(this.list.remove(id)!=null)
+            resultat=true;
+        notifyDataSetChanged();
+        return  resultat;
 
+    }
     @Override
     public int getItemCount() {
         return list.size(); }
@@ -75,16 +71,16 @@ public class ImportantDateAdapter extends RecyclerView.Adapter<ImportantDateAdap
             desc = itemView.findViewById(R.id.description);
             hor =itemView.findViewById(R.id.horaire);
             day = itemView.findViewById(R.id.date);
-            delete =itemView.findViewById(R.id.delete);
+            itemView.setOnCreateContextMenuListener(this);
         }
 
 
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             int test = this.getAdapterPosition();
-            menu.add(this.getAdapterPosition(),test,0,"Go to Wikipedia ");
             menu.add(this.getAdapterPosition(),test,0,"delete");
         }
     }
+
 }
 

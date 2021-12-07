@@ -34,7 +34,8 @@ public class EditNotesActivity extends AppCompatActivity {
         app = (MyContextApp) getApplicationContext();
         matiere = app.getMatiere();
 
-        DatabaseReference reff  = FirebaseDatabase.getInstance().getReference("Etudiant").child(app.getUid());
+        DatabaseReference reff  = FirebaseDatabase.getInstance().getReference("Etudiant").child(app.getUid())
+                .child("Matiere");
 
         btnEdit = (Button) findViewById(R.id.btnEdit);
         txtNoteTP = (TextView)findViewById(R.id.txtNoteTP);
@@ -44,6 +45,7 @@ public class EditNotesActivity extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String id = app.getMatiere().getId();
                 if (checkInput()) {
                     Control dc = setUpDC(matiere);
                     TP tp = setUpTP(matiere);
@@ -54,7 +56,8 @@ public class EditNotesActivity extends AppCompatActivity {
                     app.setMatiere(mat);
 
                     reff.child(String.valueOf(matiere.getId())).setValue(mat);
-
+                    mat.setId(id);
+                    app.setMatiere(mat);
                     Toast.makeText(EditNotesActivity.this, "Modification avec success", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(EditNotesActivity.this, MatiereDetailsActivity.class));
                 }else {

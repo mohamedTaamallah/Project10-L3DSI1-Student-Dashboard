@@ -6,42 +6,62 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#e5e6e4">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Grid"
+        android:background="#5465ff">
+        <!-- 80 -->
+        <TextView
+            android:id="@+id/some_id"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="120dp"
+            android:text="Photos et fichiers"
+            android:textAppearance="@style/some_id"
+            />
 
-             />
+        <RelativeLayout
+            android:id="@+id/sheet_botto"
+            android:layout_width="410dp"
+            android:layout_height="597dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginRight="0dp"
+            android:background="@drawable/frame2">
+
+            <Button
+                android:id="@+id/BtnListePhotos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="140dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="24sp"
+                android:background="@drawable/ic_android_black_24dp"
+                android:text="Liste Photos "
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/BtnListFichier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="24sp"
+                android:background="@drawable/ic_android_black_24dp"
+                android:text="Liste des fichiers "
+                android:textColor="@color/white" />
+        </RelativeLayout>
 
 
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/AddPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="#F8CF40"
-            android:clickable="true"
-            app:srcCompat="@drawable/float_button"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
