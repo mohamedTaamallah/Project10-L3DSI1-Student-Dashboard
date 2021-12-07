@@ -1,0 +1,24 @@
+<!-- drawable/sheet_botto.xml -->
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="375dp"
+    android:height="495dp"
+    android:viewportWidth="375"
+    android:viewportHeight="495"
+    >
+
+    <group>
+
+        <clip-path
+            android:pathData="M24 0H351C364.255 0 375 10.7452 375 24V471C375 484.255 364.255 495 351 495H24C10.7452 495 0 484.255 0 471V24C0 10.7452 10.7452 0 24 0Z"
+            />
+
+        <path
+            android:pathData="M0 0V495H375V0"
+            android:fillColor="#ebf2fa"
+            />
+
+    </group>
+
+</vector>

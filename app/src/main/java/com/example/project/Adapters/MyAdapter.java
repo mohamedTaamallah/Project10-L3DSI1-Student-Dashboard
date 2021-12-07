@@ -73,16 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
                 holder.ds.setVisibility(View.INVISIBLE);
             }
         }
-// partie delete subject
-        holder.BtnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String index = mats.get(position).getId();
-                Toast.makeText(holder.matName.getContext(), "Matiere supprimée", Toast.LENGTH_SHORT).show();
-                firebaseDatabase.child(index).removeValue();
-            }
-        });
-
+// part
     }
 
 
@@ -110,7 +101,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
             ds= itemView.findViewById(R.id.ds_txt);
             coef= itemView.findViewById(R.id.coef);
             matName= itemView.findViewById(R.id.matName);
-            BtnDelete = itemView.findViewById(R.id.BtnDelete);
 
         }
         @Override

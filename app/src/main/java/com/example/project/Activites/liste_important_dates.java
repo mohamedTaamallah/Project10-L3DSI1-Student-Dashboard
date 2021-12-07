@@ -1,9 +1,12 @@
 package com.example.project.Activites;
 
+import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -18,8 +21,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.Adapters.ImportantDateAdapter;
 import com.example.project.Adapters.MyContextApp;
+import com.example.project.Model.Image;
 import com.example.project.Model.date;
 import com.example.project.R;
+import com.example.project.SQL_lite.DataBaseHandler;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,7 +44,7 @@ public class liste_important_dates extends AppCompatActivity {
     MyContextApp appContext;
     ArrayList<date> liste_dates;
     private String CHANNEL_ID = "My Notification";
-
+    ImportantDateAdapter DateAdapter;
     public ArrayList<date> getListe_dates() {
         return liste_dates;
     }
@@ -75,7 +80,7 @@ public class liste_important_dates extends AppCompatActivity {
 
 
                 }
-                ImportantDateAdapter DateAdapter = new ImportantDateAdapter(getApplicationContext(), liste_dates, mDataRef);
+                 DateAdapter = new ImportantDateAdapter(getApplicationContext(), liste_dates, mDataRef);
                 recyclerView.setAdapter(DateAdapter);
             }
 
@@ -86,7 +91,23 @@ public class liste_important_dates extends AppCompatActivity {
         });
 
     }
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        Boolean resultat= false;
+        if(item.getTitle().equals("delete"))
+        {
+          alertDialog(item.getItemId());
 
+        }
+        else
+        {
+
+
+
+        }
+
+        return  resultat;
+    }
     public void add(View v) {
         Intent intent = new Intent(liste_important_dates.this, Important_dates_Activity.class);
         startActivity(intent);
@@ -130,4 +151,28 @@ public class liste_important_dates extends AppCompatActivity {
                 .setAutoCancel(true);
     }
 
+
+    private void alertDialog(int position) {
+        AlertDialog.Builder dialog=new AlertDialog.Builder(this);
+        dialog.setMessage("Supprimer date");
+        dialog.setTitle("Vous etes entrain de supprimer une date importante ");
+
+
+        dialog.setPositiveButton("Supprimer",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int which) {
+                        String index = liste_dates.get(position).getId();
+                        Toast.makeText(liste_important_dates.this, "Evenement supprimée", Toast.LENGTH_SHORT).show();
+                        mDataRef.child(index).removeValue();
+                        DateAdapter.deleteItem(position);
+                    }
+                });
+        dialog.setNegativeButton("Annuler",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        AlertDialog alertDialog=dialog.create();
+        alertDialog.show();
+    }
 }

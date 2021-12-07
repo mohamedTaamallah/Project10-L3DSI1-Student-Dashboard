@@ -49,11 +49,11 @@ public class Upload_Notepad_Matiere extends AppCompatActivity {
         String matiere_id = intent.getStringExtra("matiere");
 
         mEditTextNote = findViewById(R.id.LaNote);
-        mButtonAjouter = findViewById(R.id.BtnAjouter);
+        mButtonAjouter = findViewById(R.id.AddNotepad);
 
         //firebase
         mStorageRef = FirebaseStorage.getInstance().getReference();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Etudiant").child(appContext.getUid()).child("Matiere").child(appContext.getMatiere().getId()).child("Notepad");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Etudiant").child(appContext.getUid()).child("Matiere");
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override

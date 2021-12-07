@@ -60,7 +60,14 @@ public class ImportantDateAdapter extends RecyclerView.Adapter<ImportantDateAdap
 
 
     }
+    public Boolean deleteItem(int id)
+    {  Boolean resultat= false;
+        if(this.list.remove(id)!=null)
+            resultat=true;
+        notifyDataSetChanged();
+        return  resultat;
 
+    }
     @Override
     public int getItemCount() {
         return list.size(); }
@@ -75,16 +82,16 @@ public class ImportantDateAdapter extends RecyclerView.Adapter<ImportantDateAdap
             desc = itemView.findViewById(R.id.description);
             hor =itemView.findViewById(R.id.horaire);
             day = itemView.findViewById(R.id.date);
-            delete =itemView.findViewById(R.id.delete);
+            itemView.setOnCreateContextMenuListener(this);
         }
 
 
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             int test = this.getAdapterPosition();
-            menu.add(this.getAdapterPosition(),test,0,"Go to Wikipedia ");
             menu.add(this.getAdapterPosition(),test,0,"delete");
         }
     }
+
 }
 

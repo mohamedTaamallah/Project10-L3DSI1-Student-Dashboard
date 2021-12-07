@@ -97,8 +97,8 @@ public class Upload_image_Activity extends AppCompatActivity {
 
                     matiere_id = intent.getStringExtra("matiere");
 
-                    Intent i = new Intent (Upload_image_Activity.this, home_page_activity.class);
-                    i.putExtra("mat_id",matiere_id);
+                    Intent i = new Intent (Upload_image_Activity.this, ListePhotoActivity.class);
+                    i.putExtra("matiere",matiere_id);
                     startActivity(i);
 
                 }
@@ -178,8 +178,8 @@ public class Upload_image_Activity extends AppCompatActivity {
     public static byte[] imageViewToByte(ImageView image) {
         Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 10, stream);
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 10, stream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         return byteArray;
     }
