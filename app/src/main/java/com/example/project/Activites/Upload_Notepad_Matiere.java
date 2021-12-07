@@ -53,7 +53,8 @@ public class Upload_Notepad_Matiere extends AppCompatActivity {
 
         //firebase
         mStorageRef = FirebaseStorage.getInstance().getReference();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Etudiant").child(appContext.getUid()).child("Matiere");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Etudiant").child(appContext.getUid()).child("Matiere")
+                .child(appContext.getMatiere().getId()).child("Notepad");
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
