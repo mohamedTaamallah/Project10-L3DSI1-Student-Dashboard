@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:background="#2a2a2a">
+        android:background="#FFFFFF">
 
         <!-- Background -->
 
@@ -29,15 +29,14 @@
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"></View>
 
-        <TextView
-            android:id="@+id/montra3"
+
+        <VideoView
+            android:id="@+id/videoView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="200dp"
-            android:text="Organized , Practical , Creative"
-            android:textColor="@color/white"
-            android:textSize="20dp"
+            android:layout_alignParentRight="true"
+
+            android:layout_marginTop="100dp"
             android:layout_below="@id/videoView"/>
 
         <VideoView
@@ -45,13 +44,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="150dp"/>
+            android:layout_marginTop="100dp"/>
 
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="400dp"
         android:layout_marginLeft="130dp">
 
         <com.google.android.gms.common.SignInButton

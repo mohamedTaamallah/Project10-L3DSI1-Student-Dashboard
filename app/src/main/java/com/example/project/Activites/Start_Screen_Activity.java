@@ -63,10 +63,14 @@ public class Start_Screen_Activity extends AppCompatActivity {
 
         signInAccount = GoogleSignIn.getLastSignedInAccount(this);
 
-
+        //logo
         VideoView videoView = (VideoView) findViewById(R.id.videoView);
-        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.intro);
+        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.logo);
         videoView.start();
+        //team
+        VideoView videoView2 = (VideoView) findViewById(R.id.videoView2);
+        videoView2.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.team);
+        videoView2.start();
 
 
         signIn.setOnClickListener(new View.OnClickListener() {
