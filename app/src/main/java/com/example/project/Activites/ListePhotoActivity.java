@@ -7,10 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -18,14 +15,14 @@ import android.widget.Toast;
 import com.example.project.Adapters.ImageAdapter;
 import com.example.project.Model.Image;
 import com.example.project.R;
-import com.example.project.SQL_lite.DataBaseHandler;
+import com.example.project.SQL_lite.DataBaseHandlerImage;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 public class ListePhotoActivity extends AppCompatActivity {
     ArrayList <Image> list_image;
-    DataBaseHandler db;
+    DataBaseHandlerImage db;
     ImageAdapter imageAdapter;
     static Image  SelectedImage;
     @Override
@@ -35,7 +32,7 @@ public class ListePhotoActivity extends AppCompatActivity {
 
         setTitle("Liste Image");
 
-        db = new DataBaseHandler(this);
+        db = new DataBaseHandlerImage(this);
         Intent i = getIntent();
         String matiere_id = i.getStringExtra("matiere");
 
@@ -87,7 +84,7 @@ public class ListePhotoActivity extends AppCompatActivity {
         return SelectedImage;
     }
 
-    public ImageAdapter afficher (DataBaseHandler db, RecyclerView gridView, String matiere_id ){
+    public ImageAdapter afficher (DataBaseHandlerImage db, RecyclerView gridView, String matiere_id ){
         list_image  = db.getAllImage(matiere_id);
         ArrayList<String> list_descritption  = new ArrayList <>();
         ArrayList <byte[]> list_images  = new ArrayList <>();
@@ -102,7 +99,7 @@ public class ListePhotoActivity extends AppCompatActivity {
 
 
 
-    private void alertDialog(Image image,DataBaseHandler db ,int position) {
+    private void alertDialog(Image image, DataBaseHandlerImage db , int position) {
         AlertDialog.Builder dialog=new AlertDialog.Builder(this);
         dialog.setMessage("Supprimer image");
         dialog.setTitle("Vous etes entrain de supprimer une photo ");

@@ -1,46 +1,21 @@
 package com.example.project.Fragments;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
+import com.example.project.Activites.AddFileActivity;
 import com.example.project.Activites.ListePhotoActivity;
-import com.example.project.Activites.MatiereDetailsActivity;
-import com.example.project.Activites.home_page_activity;
-import com.example.project.Activites.liste_important_dates;
-import com.example.project.Adapters.ImageAdapter;
-import com.example.project.Adapters.MyAdapter;
-import com.example.project.Model.Image;
+import com.example.project.Activites.ViewFileActivity;
+import com.example.project.Activites.listFilesActivity;
 import com.example.project.R;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.project.Activites.Upload_image_Activity;
-import com.example.project.SQL_lite.DataBaseHandler;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,7 +28,8 @@ public class AboutFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    private final int CHOOSE_PDF_FROM_DEVICE=1001;
+    private final int RESULT_OK=-1;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -100,6 +76,9 @@ public class AboutFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_about, container, false);
         Button Photos = v.findViewById(R.id.BtnListePhotos);
+        Button Files = v.findViewById(R.id.BtnListFichier);
+
+
 
 
         //Navigate to the add photo
@@ -111,14 +90,38 @@ public class AboutFragment extends Fragment {
                 startActivity(i);
             }
         });
+        //Navigate to the add file
+        Files.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callChooseFileFromDevice();
+
+
+            }
+        });
 
 
         return v;
 
     }
+    public void callChooseFileFromDevice(){
+        Intent intent = new Intent (Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("application/pdf");
+        startActivityForResult(intent,CHOOSE_PDF_FROM_DEVICE);
 
+    }
 
+    public void onActivityResult(int requestCode , int resultCode , Intent resultData) {
+        super.onActivityResult(requestCode, resultCode, resultData);
+        if(requestCode==CHOOSE_PDF_FROM_DEVICE && resultCode==RESULT_OK && resultData.getData()!=null){
+             Uri data = resultData.getData();
 
+            Intent i =new Intent(getActivity(), ViewFileActivity.class);
+            i.putExtra("fileUri",data.toString());
+            startActivity(i);
+        }
+    }
 
 
 

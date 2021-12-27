@@ -24,17 +24,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
+            android:name=".Activites.ViewFileActivity"
+            android:exported="true"
+            android:permission="ACTION_OPEN_DOCUMENT"
+            />
+        <activity
+            android:name=".Activites.listFilesActivity"
+            android:exported="true"
+            />
+        <activity
+            android:name=".Activites.AddFileActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activites.ViewPhotoActivity"
             android:exported="true" />
         <activity
             android:name=".Activites.EditMatierActivity"
             android:exported="true" />
-      
-      <activity
+        <activity
             android:name=".Activites.EditNotePadActivity"
             android:exported="true" />
-      
-      
         <activity
             android:name=".Activites.EditNotesActivity"
             android:exported="true" />
