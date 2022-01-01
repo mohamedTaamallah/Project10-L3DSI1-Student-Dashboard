@@ -18,20 +18,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project.Adapters.ImageAdapter;
-import com.example.project.Fragments.AboutFragment;
 import com.example.project.Model.Image;
 import com.example.project.R;
-import com.example.project.SQL_lite.DataBaseHandler;
+import com.example.project.SQL_lite.DataBaseHandlerImage;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class ViewPhotoActivity extends AppCompatActivity {
     Image selectedItem;
-    DataBaseHandler db;
+    DataBaseHandlerImage db;
     ImageAdapter imageAdapter;
     String matiere_id;
     @Override
@@ -43,7 +39,7 @@ public class ViewPhotoActivity extends AppCompatActivity {
         EditText desc = findViewById(R.id.desc);
         ImageView image = findViewById(R.id.image_edit);
 
-        db=new DataBaseHandler(this);
+        db=new DataBaseHandlerImage(this);
 
         byte[] bytes = selectedItem.getImage();
 

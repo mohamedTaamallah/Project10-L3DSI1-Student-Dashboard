@@ -20,6 +20,8 @@ import com.example.project.R;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeFragment#newInstance} factory method to
@@ -94,7 +96,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        System.out.println("Matiere A modifier: "  +app.getMatiere());
+        DecimalFormat df = new DecimalFormat("##.##");
         changeMatierName(matiere.getName());
         TextView EditNote = (TextView) getView().findViewById(R.id.EditNote);
         noteDC = (TextView) getView().findViewById(R.id.noteDC);
@@ -106,6 +108,11 @@ public class HomeFragment extends Fragment {
         noteDS.setText(String.valueOf(app.getMatiere().getExam().getNote()));
 
         checkVisibility();
+
+        // SET MOYENNE
+        TextView txtMoy = (TextView) getView().findViewById(R.id.txtMoy);
+        String moy = df.format(calculMoyen());
+        txtMoy.setText(moy);
 
         EditNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,4 +142,24 @@ public class HomeFragment extends Fragment {
             noteTP.setVisibility(View.GONE);
         }
     }
+    double calculMoyen() {
+        int count = 0;
+        double moy = 0f;
+        if(matiere.getDc().isExist()) {
+            count++;
+            moy += app.getMatiere().getDc().getNote();
+        }
+        if(matiere.getTp().isExist()){
+            count++;
+            moy += app.getMatiere().getTp().getNote();
+        }
+        if(matiere.getExam().isExist()){
+            count++;
+            moy += app.getMatiere().getExam().getNote();
+        }
+        moy = moy/count;
+        return moy;
+    }
+
+
 }
