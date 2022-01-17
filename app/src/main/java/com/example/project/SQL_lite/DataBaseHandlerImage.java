@@ -12,13 +12,13 @@ import com.example.project.Model.Image;
 import java.sql.Blob;
 import java.util.ArrayList;
 
-public class DataBaseHandler extends SQLiteOpenHelper {
+public class DataBaseHandlerImage extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "stockage_photo";
     public static final int DATABASE_VERSION = 1;
 
 
-    public DataBaseHandler(Context c) {
+    public DataBaseHandlerImage(Context c) {
         super(c, DATABASE_NAME, null, DATABASE_VERSION);
         Log.d("Database Operations", "DataBase created ");
 

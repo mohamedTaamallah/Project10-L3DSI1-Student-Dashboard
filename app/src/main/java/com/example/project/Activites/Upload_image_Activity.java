@@ -19,11 +19,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.project.Adapters.MyContextApp;
-import com.example.project.Fragments.AboutFragment;
-import com.example.project.Fragments.HomeFragment;
 import com.example.project.Model.Image;
 import com.example.project.R;
-import com.example.project.SQL_lite.DataBaseHandler;
+import com.example.project.SQL_lite.DataBaseHandlerImage;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -32,9 +30,7 @@ import com.google.firebase.storage.StorageTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileDescriptor;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -50,7 +46,7 @@ public class Upload_image_Activity extends AppCompatActivity {
     private EditText mEditTextFileName;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
-    private DataBaseHandler db ;
+    private DataBaseHandlerImage db ;
     private Uri mImageUri;
 
     private StorageReference mStorageRef;
@@ -66,7 +62,7 @@ public class Upload_image_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upload_image);
         setTitle("Upload image");
-        db =new DataBaseHandler(this);
+        db =new DataBaseHandlerImage(this);
 
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);

@@ -2,30 +2,21 @@ package com.example.project.Adapters;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.Model.Image;
 import com.example.project.R;
-import com.example.project.SQL_lite.DataBaseHandler;
+import com.example.project.SQL_lite.DataBaseHandlerImage;
 
 import java.util.ArrayList;
 
@@ -35,7 +26,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyviewHolder
     private ArrayList<String> titre;
     private ArrayList<Image> Images;
     private Activity parentActivity;
-    private DataBaseHandler db;
+    private DataBaseHandlerImage db;
     private Image image;
 
     public ImageAdapter(Context context, ArrayList<String> titre, ArrayList<Image> images, Activity parentActivity) {
@@ -65,7 +56,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyviewHolder
     @Override
     public void onBindViewHolder(@NonNull ImageAdapter.MyviewHolder2 holder, @SuppressLint("RecyclerView") int position) {
         holder.desc.setText(Images.get(position).getTitre());
-        DataBaseHandler db = new DataBaseHandler(context);
+        DataBaseHandlerImage db = new DataBaseHandlerImage(context);
         Image imagess= Images.get(position);
         byte[] ima = imagess.getImage();
 

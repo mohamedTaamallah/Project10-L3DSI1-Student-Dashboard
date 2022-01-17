@@ -61,4 +61,7 @@ dependencies {
 
     // nav Button UI
     implementation 'com.etebarian:meow-bottom-navigation-java:1.2.0'
+
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    implementation 'com.mindorks.android:prdownloader:0.6.0'
 }

@@ -21,10 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.Adapters.ImportantDateAdapter;
 import com.example.project.Adapters.MyContextApp;
-import com.example.project.Model.Image;
 import com.example.project.Model.date;
 import com.example.project.R;
-import com.example.project.SQL_lite.DataBaseHandler;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -101,9 +99,6 @@ public class liste_important_dates extends AppCompatActivity {
         }
         else
         {
-
-
-
         }
 
         return  resultat;
