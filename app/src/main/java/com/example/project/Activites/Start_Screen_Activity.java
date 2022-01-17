@@ -69,7 +69,7 @@ public class Start_Screen_Activity extends AppCompatActivity {
         videoView.start();
         //team
         VideoView videoView2 = (VideoView) findViewById(R.id.videoView2);
-        videoView2.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.team);
+        videoView2.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.new_intro);
         videoView2.start();
 
 
