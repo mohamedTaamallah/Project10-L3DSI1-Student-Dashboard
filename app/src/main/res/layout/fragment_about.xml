@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#5465ff">
+        android:background="#4361ee">
         <!-- 80 -->
         <TextView
             android:id="@+id/some_id"
@@ -23,6 +23,9 @@
             android:layout_marginTop="120dp"
             android:text="Photos et fichiers"
             android:textAppearance="@style/some_id"
+            android:fontFamily="@font/archivo_black"
+            android:textSize="35dp"
+
             />
 
         <RelativeLayout

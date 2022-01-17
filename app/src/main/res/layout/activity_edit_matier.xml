@@ -22,7 +22,9 @@
             android:layout_marginTop="90dp"
             android:text="Modifier Matiere"
             android:textColor="#0C2D48"
-            android:textSize="40dp" />
+            android:textSize="35dp"
+            android:fontFamily="@font/archivo_black"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +35,7 @@
             android:textColor="@color/black"
             android:textFontWeight="@integer/material_motion_duration_short_1"
             android:textSize="20dp"
-
+            android:fontFamily="@font/archivo_black"
             />
 
         <RelativeLayout
@@ -64,7 +66,7 @@
             android:textColor="@color/black"
             android:textFontWeight="@integer/material_motion_duration_short_1"
             android:textSize="20dp"
-
+android:fontFamily="@font/archivo_black"
             />
 
         <RelativeLayout

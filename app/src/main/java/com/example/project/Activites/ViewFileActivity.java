@@ -41,7 +41,7 @@ public class ViewFileActivity extends AppCompatActivity {
         pdfView = (PDFView) findViewById(R.id.pdfView);
         Intent i=getIntent();
         filePath=i.getStringExtra("fileUri");
-
+         setTitle("PDF");
          Uri uri = Uri.parse(filePath);
         File myFile = new File(filePath);
 
@@ -58,7 +58,6 @@ public class ViewFileActivity extends AppCompatActivity {
         }  if (filePath.startsWith("file://")) {
             displayName = myFile.getName();
         }
-        setTitle("File viewer");
         pdfView.fromUri(uri).defaultPage(0)
                 .enableAnnotationRendering(true)
                 .scrollHandle(new DefaultScrollHandle(this))

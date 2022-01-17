@@ -17,6 +17,7 @@
             android:layout_height="match_parent"
             android:fillViewport="true">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -32,26 +33,55 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
+                    android:fontFamily="@font/archivo_black"
                     android:text="matier"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="45dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/archivo_black"
+                        android:text="Moyenne:  "
+                        android:textColor="@color/white"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:id="@+id/txtMoy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="30dp" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/txtViewDC"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="90dp"
-                    android:text="Devoir de controle "
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="@font/archivo_black"
+                    android:text="Devoir de controle :"
                     android:textColor="@color/white"
-                    android:textSize="30dp" />
+                    android:textSize="30dp"
+
+                    />
 
                 <TextView
                     android:id="@+id/noteDC"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="320dp"
+                    android:layout_marginLeft="250dp"
+
                     android:text="0"
                     android:textColor="@color/white"
                     android:textFontWeight="3"
@@ -64,15 +94,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="30dp"
-                    android:text="Devoir de synthese "
+                    android:fontFamily="@font/archivo_black"
+                    android:text="Devoir de synthese :"
                     android:textColor="@color/white"
-                    android:textSize="30dp" />
+                    android:textSize="30dp"
+
+                    />
 
                 <TextView
                     android:id="@+id/noteDS"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="320dp"
+                    android:layout_marginLeft="250dp"
                     android:text="0"
                     android:textColor="@color/white"
                     android:textFontWeight="3"
@@ -84,15 +117,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="30dp"
-                    android:text="Travail pratique "
+                    android:fontFamily="@font/archivo_black"
+                    android:text="Travail pratique :"
                     android:textColor="@color/white"
-                    android:textSize="30dp" />
+                    android:textSize="30dp"
+
+                    />
 
                 <TextView
                     android:id="@+id/noteTP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="320dp"
+                    android:layout_marginLeft="250dp"
                     android:text="0 "
                     android:textColor="@color/white"
                     android:textFontWeight="3"
@@ -105,20 +141,23 @@
                     android:layout_marginTop="100dp"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/EditNote"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="10dp"
-                        android:clickable="true"
-                        android:text="Modifer notes "
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="25dp" />
-
 
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/EditNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:clickable="true"
+                    android:fontFamily="@font/archivo_black"
+                    android:text="Modifer notes "
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+
+                    />
 
             </LinearLayout>
 

@@ -2,14 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.project">
 
-    <uses-permission android:name="android.permission.Read_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.Read_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -40,9 +37,14 @@
             android:exported="true" />
         <activity
             android:name=".Activites.EditMatierActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".Activites.home_page_activity"
+
+            />
         <activity
             android:name=".Activites.EditNotePadActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"
+
             android:exported="true" />
         <activity
             android:name=".Activites.EditNotesActivity"
@@ -54,7 +56,8 @@
         <activity
             android:name=".Activites.AddMatierActivity"
             android:exported="true"
-            android:parentActivityName=".Activites.home_page_activity" />
+            android:parentActivityName=".Activites.home_page_activity"
+            />
         <activity
             android:name=".Activites.home_page_activity"
             android:exported="true" />
@@ -68,11 +71,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activites.Upload_image_Activity" />
-        <activity android:name=".Activites.Important_dates_Activity" />
-        <activity android:name=".Activites.liste_important_dates" />
+        <activity android:name=".Activites.Upload_image_Activity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+        <activity android:name=".Activites.Important_dates_Activity"
+
+            />
+        <activity android:name=".Activites.liste_important_dates"
+            android:parentActivityName=".Activites.home_page_activity"
+
+            />
         <activity android:name=".Activites.ListePhotoActivity" />
-        <activity android:name=".Activites.Upload_Notepad_Matiere" />
+        <activity android:name=".Activites.Upload_Notepad_Matiere"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"
+
+
+            />
+
+
+        <receiver android:name=".Model.AlarmReciever"/>
     </application>
 
 </manifest>

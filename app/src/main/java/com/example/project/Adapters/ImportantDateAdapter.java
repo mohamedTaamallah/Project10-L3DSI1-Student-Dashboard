@@ -44,8 +44,8 @@ public class ImportantDateAdapter extends RecyclerView.Adapter<ImportantDateAdap
     public void onBindViewHolder(@NonNull MyviewHolder1 holder,@SuppressLint("RecyclerView") int position) {
 
             holder.desc.setText(list.get(position).getDescription());
-            holder.hor.setText(list.get(position).getTime());
-            holder.day.setText(list.get(position).getDate());
+            holder.hor.setText("A:   "+list.get(position).getTime());
+            holder.day.setText("Le:  "+list.get(position).getDate());
 
 
     }

@@ -12,6 +12,7 @@
 
         <clip-path
             android:pathData="M0 0H343V32H0V0Z"
+
             />
 
     </group>
