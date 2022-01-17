@@ -50,7 +50,7 @@ public class home_page_activity extends AppCompatActivity  {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
-        setTitle("Dashboard");
+        setTitle("Student Dashboard");
          db = new DataBaseHandlerImage(this);
         appContext = (MyContextApp)getApplicationContext();
         mDataRef = FirebaseDatabase.getInstance().getReference().child("Etudiant").child(appContext.getUid()).child("Matiere");

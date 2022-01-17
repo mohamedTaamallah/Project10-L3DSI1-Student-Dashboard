@@ -52,7 +52,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="30dp"
-            android:backgroundTint="#F8CF40"
+            android:backgroundTint="#f3722c"
             android:clickable="true"
             android:onClick="add"
             app:srcCompat="@drawable/float_button"

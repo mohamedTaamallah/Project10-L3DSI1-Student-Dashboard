@@ -55,7 +55,7 @@ public class Important_dates_Activity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.important_dates);
-        setTitle("Important dates");
+        setTitle("Dates Importantes ");
         // NOTIFICATION CHANNEL
         createNotificationChannel();
 
@@ -162,6 +162,9 @@ public class Important_dates_Activity extends AppCompatActivity {
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel("Student", name, importance);
             channel.setDescription(description);
+            channel.setShowBadge(true);
+            channel.shouldShowLights();
+
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
             NotificationManager notificationManager = getSystemService(NotificationManager.class);

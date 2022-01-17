@@ -36,12 +36,12 @@
                 android:id="@+id/matName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
                 android:text="matiere"
                 android:textColor="#ffffff"
                 android:textSize="24dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="20dp"
-
+android:fontFamily="@font/archivo_black"
                 />
 
 
@@ -53,7 +53,9 @@
                 android:layout_marginTop="50dp"
                 android:text="coeff"
                 android:textColor="#ffffff"
-                android:textSize="24dp" />
+                android:textSize="24dp"
+                android:fontFamily="@font/archivo_black"
+                />
 
 
             <LinearLayout

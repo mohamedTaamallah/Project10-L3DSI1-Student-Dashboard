@@ -18,11 +18,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
+            android:layout_marginLeft="65dp"
             android:layout_marginTop="90dp"
             android:text="Ajouter Matiere"
             android:textColor="#0C2D48"
-            android:textSize="40dp" />
+            android:textSize="30dp"
+            android:fontFamily="@font/archivo_black"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,6 +34,7 @@
             android:textColor="@color/black"
             android:textFontWeight="@integer/material_motion_duration_short_1"
             android:textSize="20dp"
+            android:fontFamily="@font/archivo_black"
 
             />
 
@@ -64,6 +66,7 @@
             android:textColor="@color/black"
             android:textFontWeight="@integer/material_motion_duration_short_1"
             android:textSize="20dp"
+            android:fontFamily="@font/archivo_black"
 
             />
 

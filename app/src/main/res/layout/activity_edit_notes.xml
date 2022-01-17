@@ -24,7 +24,9 @@
             android:textAlignment="center"
             android:text="Modifier la Note"
             android:textColor="#0C2D48"
-            android:textSize="40dp" />
+            android:textSize="35dp"
+            android:fontFamily="@font/archivo_black"
+            />
 
         <TextView
             android:id="@+id/viewDC"
@@ -36,6 +38,7 @@
             android:textColor="@color/black"
             android:textFontWeight="@integer/material_motion_duration_short_1"
             android:textSize="20dp"
+            android:fontFamily="@font/archivo_black"
 
             />
 
@@ -69,6 +72,7 @@
             android:textColor="@color/black"
             android:textFontWeight="@integer/material_motion_duration_short_1"
             android:textSize="20dp"
+            android:fontFamily="@font/archivo_black"
 
             />
 
@@ -102,6 +106,7 @@
             android:textColor="@color/black"
             android:textFontWeight="@integer/material_motion_duration_short_1"
             android:textSize="20dp"
+            android:fontFamily="@font/archivo_black"
 
             />
 

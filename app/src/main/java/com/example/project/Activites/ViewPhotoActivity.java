@@ -10,6 +10,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +32,9 @@ public class ViewPhotoActivity extends AppCompatActivity {
     DataBaseHandlerImage db;
     ImageAdapter imageAdapter;
     String matiere_id;
+    private ScaleGestureDetector scaleGestureDetector;
+    private float mScaleFactor = 1.0f;
+    ImageView image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +42,8 @@ public class ViewPhotoActivity extends AppCompatActivity {
         selectedItem = ListePhotoActivity.getSelectedImage();
 
         EditText desc = findViewById(R.id.desc);
-        ImageView image = findViewById(R.id.image_edit);
-
+         image = findViewById(R.id.image_edit);
+        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
         db=new DataBaseHandlerImage(this);
 
         byte[] bytes = selectedItem.getImage();
@@ -79,6 +84,21 @@ public class ViewPhotoActivity extends AppCompatActivity {
         });
 
 
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        scaleGestureDetector.onTouchEvent(motionEvent);
+        return true;
+    }
+    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        @Override
+        public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+            mScaleFactor *= scaleGestureDetector.getScaleFactor();
+            mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f));
+            image.setScaleX(mScaleFactor);
+            image.setScaleY(mScaleFactor);
+            return true;
+        }
     }
     private void saveToGallery(ImageView imageView){
         BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();

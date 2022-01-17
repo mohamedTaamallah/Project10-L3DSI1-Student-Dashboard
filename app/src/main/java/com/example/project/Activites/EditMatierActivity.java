@@ -37,7 +37,7 @@ public class EditMatierActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_matier);
         app = (MyContextApp)getApplicationContext();
-
+        setTitle("Modifier Matiere");
         DatabaseReference reff  = FirebaseDatabase.getInstance().getReference("Etudiant").child(app.getUid()).child("Matiere").child(app.getMatiere().getId());
         matiere  = new Matiere();
 

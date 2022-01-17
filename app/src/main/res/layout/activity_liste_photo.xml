@@ -12,12 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#ffff">
+        android:background="#d6e2e9">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Grid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#cce6f4"
 
             />
 
@@ -36,10 +37,12 @@
             android:layout_alignParentBottom="true"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="30dp"
-            android:backgroundTint="#F8CF40"
+            android:backgroundTint="#f3722c"
             android:clickable="true"
             app:srcCompat="@drawable/ic_baseline_add_a_photo_24"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+
+            />
 
     </RelativeLayout>
 

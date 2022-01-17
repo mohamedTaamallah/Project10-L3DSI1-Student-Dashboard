@@ -1,67 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#f8f7ff"
 
+    >
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        android:background="#6AE8E6E6">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Editer note"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:fontFamily="@font/archivo_black"
+        />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="90dp"
-            android:text="Editer une note"
-            android:textColor="#0C2D48"
-            android:textSize="40dp" />
+    <RelativeLayout
+        android:id="@+id/input_field"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/input_field">
 
-
-
-        <RelativeLayout
-            android:id="@+id/input_field"
+        <EditText
+            android:id="@+id/LaNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="60dp"
-            android:background="@drawable/input_field">
-
-            <EditText
-                android:id="@+id/LaNote"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
-                android:hint="Entrer le texte" />
-        </RelativeLayout>
+            android:layout_marginRight="20dp"
+            android:hint="Enter Note" />
+    </RelativeLayout>
 
 
-        <Button
-            android:id="@+id/BtnEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="24sp"
-            android:layout_marginBottom="24sp"
-            android:background="@drawable/ic_android_black_24dp"
-            android:text="Editer"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:textColor="@color/white" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/BtnEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="550dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/ic_android_black_24dp"
+        android:text="Modifier note"
+        android:textColor="@color/white" />
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

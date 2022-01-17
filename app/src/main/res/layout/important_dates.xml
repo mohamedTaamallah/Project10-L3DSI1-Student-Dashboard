@@ -16,7 +16,7 @@
         android:layout_alignEnd="@id/calendarView"
         android:text="Entrer Description"
         android:textColor="@color/black"
-
+        android:fontFamily="@font/archivo_black"
         android:textSize="20dp" />
 
     <RelativeLayout
@@ -42,11 +42,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/calendarView"
+        android:layout_alignEnd="@id/calendarView"
         android:layout_marginTop="120dp"
         android:text="Entrer horaire"
         android:textColor="@color/black"
         android:textSize="20dp"
-        android:layout_alignEnd="@id/calendarView"
+        android:fontFamily="@font/archivo_black"
         />
 
     <TimePicker

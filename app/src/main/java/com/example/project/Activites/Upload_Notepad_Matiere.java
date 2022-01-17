@@ -41,7 +41,7 @@ public class Upload_Notepad_Matiere extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upload_notepad_matiere);
-        setTitle("Ajouter une note");
+        setTitle("Ajouter note");
 
         appContext = (MyContextApp)getApplicationContext();
 

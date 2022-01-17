@@ -33,6 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
+                    android:fontFamily="@font/archivo_black"
                     android:text="matier"
                     android:textAlignment="center"
                     android:textColor="@color/white"
@@ -48,7 +49,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Moyen:  "
+                        android:fontFamily="@font/archivo_black"
+                        android:text="Moyenne:  "
                         android:textColor="@color/white"
                         android:textSize="30dp" />
 
@@ -67,9 +69,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="70dp"
-                    android:text="Devoir de controle "
+                    android:fontFamily="@font/archivo_black"
+                    android:text="Devoir de controle :"
                     android:textColor="@color/white"
-                    android:textSize="30dp" />
+                    android:textSize="30dp"
+
+                    />
 
                 <TextView
                     android:id="@+id/noteDC"
@@ -89,9 +94,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="30dp"
-                    android:text="Devoir de synthese "
+                    android:fontFamily="@font/archivo_black"
+                    android:text="Devoir de synthese :"
                     android:textColor="@color/white"
-                    android:textSize="30dp" />
+                    android:textSize="30dp"
+
+                    />
 
                 <TextView
                     android:id="@+id/noteDS"
@@ -109,9 +117,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="30dp"
-                    android:text="Travail pratique "
+                    android:fontFamily="@font/archivo_black"
+                    android:text="Travail pratique :"
                     android:textColor="@color/white"
-                    android:textSize="30dp" />
+                    android:textSize="30dp"
+
+                    />
 
                 <TextView
                     android:id="@+id/noteTP"
@@ -140,10 +151,13 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="10dp"
                     android:clickable="true"
+                    android:fontFamily="@font/archivo_black"
                     android:text="Modifer notes "
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+
+                    />
 
             </LinearLayout>
 
